@@ -1,0 +1,93 @@
+﻿
+<form novalidate name="frmScrollMessage" id="frmScrollMessage" class="form-horizontal row-border">
+    <input type="hidden" id="hMessageId" readonly="readonly" ng-model="hMessageId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div> 
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Message :</label>
+                <div class="col-md-6">
+                    <textarea rows="2" cols="4" 
+                              id="txtMessage" 
+                              class="form-control ng-pristine ng-valid ng-empty ng-touched" 
+                              name="txtMessage" ng-model="Message" 
+                              style="width: 251px; height: 100px;" required></textarea>
+                </div>
+                <span class="error">*</span>
+            </div>   
+
+        </div>
+
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            @*<div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Is Nationwide Event :</label>
+                <div class="col-md-6">
+                    <input type="checkbox" ng-model="IsToAll" id="IsToAll" ng-change="OnchangeToAll()" name="chkIsForAlle" />
+                </div>
+            </div>*@
+
+            @*<div class="form-group" ng-show="IsRegionShow">
+                <label class="col-md-4 control-label" for="input17">Region</label>
+                <div class="col-md-6">
+                    <select id="ddlRegion" class="select2-select-00"
+                            ng-model="Region"
+                            name="ddlRegion"
+                            ng-change="loadZones()"
+                            data-placeholder="--Select Region--"
+                            style="width: 100%" ng-options="ct.REGION_ID as ct.REGION_NAME for ct in listRegion">
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>*@
+
+
+            @*<div class="form-group" ng-show="IsZoneShow">
+                <label class="col-md-4 control-label" for="input17">Zone</label>
+                <div class="col-md-6">
+                    <ngdropdownmultiselect control="ngDropdownMultiselectControlo">
+                        <div ng-dropdown-multiselect="" options="ListDDLZone" selected-model="ListSelectedZone" checkboxes="true">
+                        </div>
+                    </ngdropdownmultiselect>
+                </div>
+            </div>*@
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Display Date From</label>
+                <div class="col-md-6">
+
+                    <input type="text"
+                           id="txtDateFrom"
+                           class="form-control datepicker"
+                           name="txtDateFrom" ng-model="DisplayDateFrom" placeholder="dd-MM-yyyy" required /> @*//ng-change="dateValidation()"*@
+
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">Display Date To</label>
+                    <div class="col-md-6">
+                        <input type="text"
+                               id="txtDateTo"
+                               class="form-control datepicker"
+                               name="txtDateTo" ng-model="DisplayDateTo" placeholder="dd-MM-yyyy" required />
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+                <div class="form-group m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Is Active :</label>
+                    <div class="col-md-6">
+                        <input type="checkbox" ng-model="IsActive" id="chkIsActive" name="chkIsActive" />
+                    </div>
+                </div>
+
+        </div>
+    
+     </div>
+</form>
+

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49D0FBA9-F3B9-43E0-A4B9-91145EF6C9BA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>APL.BL.SFTS.ProcessZone</RootNamespace>
+    <AssemblyName>APL.BL.SFTS.ProcessZone</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Recordset.Net, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Recordset.Net.0.9.1\lib\net40\Recordset.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Http.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Http.Common.4.0.20126.16343\lib\net40\System.Web.Http.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasicInfo\DistributorPZ.cs" />
+    <Compile Include="BasicInfo\EventInfoPZ.cs" />
+    <Compile Include="BasicInfo\RoutePZ.cs" />
+    <Compile Include="BasicInfo\UserInfoPZ.cs" />
+    <Compile Include="Common\MenuGroupItemMapPZ.cs" />
+    <Compile Include="Common\MenuGroupPZ.cs" />
+    <Compile Include="Common\MenuItemPZ.cs" />
+    <Compile Include="Common\MenuPZ.cs" />
+    <Compile Include="DataEncrypterDecrypter.cs" />
+    <Compile Include="Message Package\CurrentOfferPZ.cs" />
+    <Compile Include="Message Package\NotificationPZ.cs" />
+    <Compile Include="Message Package\TickerMessagePZ.cs" />
+    <Compile Include="MessageReplayXML.cs" />
+    <Compile Include="Monobrand\VisitPlanPZ.cs" />
+    <Compile Include="Notice\NoticeSetupPZ.cs" />
+    <Compile Include="Posm\MtoPZ.cs" />
+    <Compile Include="Posm\MtoVisitPlanPZ.cs" />
+    <Compile Include="Posm\PosmPZ.cs" />
+    <Compile Include="Posm\RsoVisitPlanPZ.cs" />
+    <Compile Include="ProductInfo\ProductInfoPZ.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retailer\AdhocReportPZ.cs" />
+    <Compile Include="Retailer\CriticalRetailerBalancePZ.cs" />
+    <Compile Include="Retailer\CriticalRetailerPopupPZ.cs" />
+    <Compile Include="Retailer\RetailerPZ.cs" />
+    <Compile Include="Retailer\RetailerTargetPZ.cs" />
+    <Compile Include="RSO\RSOAttendancePZ.cs" />
+    <Compile Include="RSO\RSOPointPZ.cs" />
+    <Compile Include="RSO\RsoPZ.cs" />
+    <Compile Include="RSO\RSORoutePZ.cs" />
+    <Compile Include="RSO\RsoSalaryPZ.cs" />
+    <Compile Include="RSO\RSOSUpdateStockPZ.cs" />
+    <Compile Include="RSO\RSOVisitPlanPZ.cs" />
+    <Compile Include="SAF\SAFInfoPZ.cs" />
+    <Compile Include="Sales\SalesMemoPZ.cs" />
+    <Compile Include="ServiceStringXML.cs" />
+    <Compile Include="Survey\SurveyPZ.cs" />
+    <Compile Include="Target\AchievementPointPZ.cs" />
+    <Compile Include="Target\CommissionGroupMemberMapPZ.cs" />
+    <Compile Include="Target\CommissionGroupPZ.cs" />
+    <Compile Include="Target\CommissionInfoPZ.cs" />
+    <Compile Include="Target\DistributorBudgetPZ.cs" />
+    <Compile Include="Target\GrossBudgetPZ.cs" />
+    <Compile Include="Target\NationalTargetDistributionPZ.cs" />
+    <Compile Include="Target\NationalTargetSetupPZ.cs" />
+    <Compile Include="Target\RetailerBudgetPZ.cs" />
+    <Compile Include="Target\TargetExcelPZ.cs" />
+    <Compile Include="Target\TargetItemPZ.cs" />
+    <Compile Include="Target\TargetSetupPZ.cs" />
+    <Compile Include="Training\TrainingContentPZ.cs" />
+    <Compile Include="Transaction\EndCallInfoPZ.cs" />
+    <Compile Include="Transaction\GenerateTokenPZ.cs" />
+    <Compile Include="Transaction\GetNewIdPZ.cs" />
+    <Compile Include="Transaction\ProductTranscationPZ.cs" />
+    <Compile Include="VFocus\ApplicationLogPZ.cs" />
+    <Compile Include="VFocus\B2C_UPLOAD_FILE.cs" />
+    <Compile Include="VFocus\GraphInfoPZ.cs" />
+    <Compile Include="WeekAllDays.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\APL.BL.SFTS.DataBridgeZone\APL.BL.SFTS.DataBridgeZone.csproj">
+      <Project>{c2430880-1a41-43c0-9d4a-0f1bf67f57b6}</Project>
+      <Name>APL.BL.SFTS.DataBridgeZone</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APL.BL.SFTS.Models\APL.BL.SFTS.Models.csproj">
+      <Project>{E0020656-C616-4913-927D-76C1D9A9322A}</Project>
+      <Name>APL.BL.SFTS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\APL.BL.SFTS.ShelterZone\APL.BL.SFTS.ShelterZone.csproj">
+      <Project>{38a6ffa6-47b7-49a8-9755-2a222be6cc15}</Project>
+      <Name>APL.BL.SFTS.ShelterZone</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resource\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

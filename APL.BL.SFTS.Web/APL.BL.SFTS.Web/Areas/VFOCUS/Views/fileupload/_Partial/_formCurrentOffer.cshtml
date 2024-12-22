@@ -1,0 +1,280 @@
+﻿
+<form novalidate name="frmCurrentOffer" id="frmCurrentOffer" class="form-horizontal row-border">
+    <input type="hidden" id="hOfferId" readonly="readonly" ng-model="hOfferId" />
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">File Category: </label>
+                <div class="col-md-6">
+                    <select id="ddlTargetItem" class="select2-select-00"
+                            ng-model="fileCategory"
+                            ng-disabled="IsTargetItemDisabled"
+                            name="ddlTargetItem"
+                            data-placeholder="--Select Target Item--"
+                            style="width: 100%" ng-options="dist.ID as dist.CATEGORY_NAME for dist in listFileCategory" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">File Name:</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtOfferName"
+                           class="form-control"
+                           name="txtFileName" ng-model="fileName" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+
+            <div class="form-group"  ng-show="IsFileLinkShow">
+                <label class="col-md-4 control-label" for="input17">File Link:</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtFileLink"
+                           class="form-control"
+                           name="txtFileLink" ng-model="fileLink"  />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+           
+
+            
+
+            
+
+
+           
+
+        </div>
+
+
+
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">File Format</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetPeriod" class="select2-select-00"
+                            ng-model="fileFormat"
+                            name="ddlTargetPeriod"
+                            ng-change="fileFormatOnchange()"
+                            ng-disabled="IsTargetPeriodDisabled"
+                            data-placeholder="--Select Target Period--"
+                            style="width: 100%" ng-options="rout.ID as rout.FORMAT_NAME for rout in listFileFormat" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Short description:</label>
+                <div class="col-md-6">
+                    <textarea rows="2" cols="3"
+                              id="fileDetail"
+                              class="form-control"
+                              name="fileDetail" ng-model="fileDetail"></textarea>
+                </div>
+               
+            </div>
+
+
+
+               
+
+                    
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="input17">Upload Image </label>
+                        <div class="col-md-6">
+                            @*<input type="file" id="file" name="file" multiple onchange="angular.element(this).scope().getFileDetails(this)" />*@
+                            <input type="file" id="files" name="files[]" multiple required />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Is Active </label>
+                <div class="col-md-6">
+                    <input type="checkbox" id="chkIsActive" ng-model="IsActive" />
+                </div>
+            </div>
+
+                   
+
+                </div>
+            </div>
+
+
+            <div class="div_wrapper" id="imgWrapper">
+                <div id="one" ng-show="IsImageShow">
+                    <div>
+                        <span class="pip" ng-repeat="model in ImageData">
+                            <img class="imageThumb" id="{{model.PICTURE_ID}}" ng-click="PreviewPicture(model.PICTURE_ID)" data-ng-src="data:image/png;base64,{{model.PICTURE}}" />
+                            <br /><span class="removeOld" ng-click="RemovePics(model.PICTURE_ID)">Remove image</span>
+                        </span>
+  
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                        </div>
+                    </div>
+                </div>
+                <div id="two">
+                    <div id="imageContain">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+
+        <style type="text/css">
+            input[type="file"] {
+                display: block;
+            }
+
+            .imageThumb {
+                max-height: 75px;
+                border: 2px solid;
+                padding: 1px;
+                cursor: pointer;
+            }
+
+            .pip {
+                display: inline-block;
+                margin: 10px 10px 0 0;
+            }
+
+            .remove {
+                display: block;
+                background: #444;
+                border: 1px solid black;
+                color: white;
+                text-align: center;
+                cursor: pointer;
+            }
+
+                .remove:hover {
+                    background: white;
+                    color: black;
+                }
+
+            .removeOld {
+                display: block;
+                background: #444;
+                border: 1px solid black;
+                color: white;
+                text-align: center;
+                cursor: pointer;
+            }
+
+                .removeOld:hover {
+                    background: white;
+                    color: black;
+                }
+
+
+            .div_wrapper {
+                overflow: hidden;
+            }
+
+            #one {
+                float: left;
+                width: auto;
+            }
+
+            #two {
+                overflow: hidden;
+            }
+
+
+            /* The Modal (background) */
+
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 99999999;
+                padding-top: 33px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background-color: rgba(0,0,0,0.7);
+            }
+
+                .modal img {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    -moz-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    -o-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                }
+
+            /* Modal Content (image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 500px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+            /* Add Animation */
+            .modal-content, #caption {
+                -webkit-animation-name: zoom;
+                -webkit-animation-duration: 0.6s;
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #fff;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+                opacity: .5;
+                text-shadow: none;
+            }
+
+                .close:hover,
+                .close:focus {
+                    color: #bbb;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+        </style>
+

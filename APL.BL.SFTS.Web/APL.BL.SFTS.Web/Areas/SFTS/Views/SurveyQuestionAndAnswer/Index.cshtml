@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Survey Question";
+}
+
+<div ng-controller="tokenCtrl">
+    <div ng-controller="SurveyQuestionCtrl">
+        <!-- Breadcrumbs line -->
+        <div>
+            @Html.Partial("~/Areas/SystemCommon/Views/Shared/_Partial/_TestBreadcrumbs.cshtml")
+        </div>
+
+        <div style="height: 10px"></div>
+        <!-- /Page Header -->
+        <!--=== Page Content ===-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    
+                    <fieldset class="fsStyle">
+                        <legend class="legendStyle">Create a new survey Question</legend>
+                        @Html.Partial("~/Areas/SFTS/Views/SurveyQuestionAndAnswer/_Partial/_formSurveyQuestion.cshtml")
+                        <fieldset class="fsStyle">
+                            <legend class="legendStyle">Survey Question</legend>
+                            <div ng-show="IsTableSurveyQuestionShow">
+                                @Html.Partial("~/Areas/SFTS/Views/SurveyQuestionAndAnswer/_Partial/_tableSurveyQuestion.cshtml")
+                            </div>
+                         </fieldset>
+                    </fieldset>
+                    <div style="height: 5px"></div>
+                    <fieldset class="fsStyle">
+                        <legend class="legendStyle">Create a new answer</legend>
+                        @Html.Partial("~/Areas/SFTS/Views/SurveyQuestionAndAnswer/_Partial/_formQuestionAnswer.cshtml")
+
+                        <fieldset class="adminFieldset">
+                            <legend>Survey Answer</legend>
+                            <div ng-show="IsTableQuestionAnswerShow">
+                                @Html.Partial("~/Areas/SFTS/Views/SurveyQuestionAndAnswer/_Partial/_tableQuestionAnswer.cshtml")
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                </div>
+            </div> <!-- /.col-md-12 -->
+        </div>
+    </div>
+</div>
+
+@section AngularScript{
+    <script src="~/Areas/SFTS/ScriptsNg/Controllers/SurveyQuestionCtlr.js"></script>
+    <script src="~/Areas/SFTS/ScriptsNg/Service/CrudService.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+    <script src="~/Areas/Token/TokenController.js"></script>
+}

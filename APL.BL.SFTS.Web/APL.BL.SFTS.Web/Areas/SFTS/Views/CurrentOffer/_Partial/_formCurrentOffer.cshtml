@@ -1,0 +1,348 @@
+﻿
+<form novalidate name="frmCurrentOffer" id="frmCurrentOffer" class="form-horizontal row-border">
+    <input type="hidden" id="hOfferId" readonly="readonly" ng-model="hOfferId" />
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Offer Name</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtOfferName"
+                           class="form-control"
+                           name="txtOfferName" ng-model="OfferName" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Offer Detail</label>
+                <div class="col-md-6">
+                    <textarea rows="2" cols="3"
+                              id="txtOfferDetail"
+                              class="form-control"
+                              name="txtOfferDetail" ng-model="OfferDetail"></textarea>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Target Type</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetType" class="select2-select-00"
+                            ng-model="TargetType"
+                            ng-change="TargetTypeOnchange()"
+                            name="ddlTargetType"
+                            data-placeholder="--Select Target Type--"
+                            style="width: 100%" required>
+                        <option></option>
+                        <option value="1">RETAILERS</option>
+                        @*<option value="2">DISTRIBUTORS</option>*@
+                        <option value="3">STAFFS</option>
+                        @*<option value="4">CENTER/SHOP</option>*@
+                    <option value="5">Merchindeser</option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Is To All </label>
+                <div class="col-md-6">
+                    <input type="checkbox" id="IsToAll" ng-change="OnchangeToAll()" ng-model="IsToAll" />
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="IsStaffRoleShow">
+                <label class="col-md-4 control-label" for="input17">Staff Role</label>
+                <div class="col-md-6">
+                    <select id="ddlStaffRole" class="select2-select-00"
+                            ng-model="StaffRole"
+                            name="ddlStaffRole"
+                            data-placeholder="--Select Staff Role--"
+                            style="width: 100%" ng-options="rl.ROLE_ID as rl.ROLE_NAME for rl in listRole">
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group" ng-show="IsCenterTypeShow">
+                <label class="col-md-4 control-label" for="input17">Center Type</label>
+                <div class="col-md-6">
+                    <select id="ddlCenterType" class="select2-select-00"
+                            ng-model="CenterType"
+                            name="ddlCenterType"
+                            data-placeholder="--Select Center Type--"
+                            style="width: 100%" ng-options="ct.CENTER_TYPE_ID as ct.CENTER_TYPE_NAME for ct in listCenterType">
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            @*<div class="form-group" ng-show="IsRetailerUploadShow">
+            <label class="col-md-4 control-label" for="input17">Region</label>
+            <div class="col-md-6">
+                <select id="ddlRegion" class="select2-select-00"
+                        ng-model="Region"
+                        name="ddlRegion"
+                        ng-change="loadDistributors()"
+                        data-placeholder="--Select Region--"
+                        style="width: 100%" ng-options="ct.REGION_ID as ct.REGION_NAME for ct in listRegion">
+                    <option></option>
+                </select>
+            </div>
+            <span class="error">*</span>
+        </div>*@
+            <div class="form-group" ng-show="IsRegionShow">
+                <label class="col-md-4 control-label" for="input17">Region</label>
+                <div class="col-md-6">
+                    <ngdropdownmultiselect control="ngDropdownMultiselectControlo">
+                        <div ng-dropdown-multiselect="" options="listDDLRegion"  selected-model="ListSelectedRegion" checkboxes="true">
+                        </div>
+                    </ngdropdownmultiselect>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="IsRetailerUploadShow">
+                <label class="col-md-4 control-label" for="input17">Distributor</label>
+                <div class="col-md-6">
+                    <ngdropdownmultiselect control="ngDropdownMultiselectControlo">
+                        <div ng-dropdown-multiselect="" options="ListDDLDistributor"  selected-model="ListSelectedDistributor" checkboxes="true">
+                        </div>
+                    </ngdropdownmultiselect>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Start Date</label>
+                <div class="col-md-6">
+
+                    <input type="text"
+                           id="txtDateFrom"
+                           class="form-control datepicker"
+                           name="txtDateFrom" ng-model="StartDate" placeholder="dd-MM-yyyy" required /> @*//ng-change="dateValidation()"*@
+
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">End Date</label>
+                    <div class="col-md-6">
+                        <input type="text"
+                               id="txtDateTo"
+                               class="form-control datepicker"
+                               name="txtDateTo" ng-model="EndDate" placeholder="dd-MM-yyyy" required />
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Display Date From</label>
+                    <div class="col-md-6">
+
+                        <input type="text"
+                               id="txtDateFrom"
+                               class="form-control datepicker"
+                               name="txtDateFrom" ng-model="DisplayDateFrom" placeholder="dd-MM-yyyy" required /> @*//ng-change="dateValidation()"*@
+
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="input17">Display Date To</label>
+                        <div class="col-md-6">
+                            <input type="text"
+                                   id="txtDateTo"
+                                   class="form-control datepicker"
+                                   name="txtDateTo" ng-model="DisplayDateTo" placeholder="dd-MM-yyyy" required />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="input17">Upload Image </label>
+                        <div class="col-md-6">
+                            @*<input type="file" id="file" name="file" multiple onchange="angular.element(this).scope().getFileDetails(this)" />*@
+                            <input type="file" id="files" name="files[]" multiple />
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="input17">Is Active </label>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="chkIsActive" ng-model="IsActive" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="div_wrapper" id="imgWrapper">
+                <div id="one" ng-show="IsImageShow">
+                    <div>
+                        <span class="pip" ng-repeat="model in ImageData">
+                            <img class="imageThumb" id="{{model.PICTURE_ID}}" ng-click="PreviewPicture(model.PICTURE_ID)" data-ng-src="data:image/png;base64,{{model.PICTURE}}" />
+                            <br /><span class="removeOld" ng-click="RemovePics(model.PICTURE_ID)">Remove image</span>
+                        </span>
+  
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                        </div>
+                    </div>
+                </div>
+                <div id="two">
+                    <div id="imageContain">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+
+        <style type="text/css">
+            input[type="file"] {
+                display: block;
+            }
+
+            .imageThumb {
+                max-height: 75px;
+                border: 2px solid;
+                padding: 1px;
+                cursor: pointer;
+            }
+
+            .pip {
+                display: inline-block;
+                margin: 10px 10px 0 0;
+            }
+
+            .remove {
+                display: block;
+                background: #444;
+                border: 1px solid black;
+                color: white;
+                text-align: center;
+                cursor: pointer;
+            }
+
+                .remove:hover {
+                    background: white;
+                    color: black;
+                }
+
+            .removeOld {
+                display: block;
+                background: #444;
+                border: 1px solid black;
+                color: white;
+                text-align: center;
+                cursor: pointer;
+            }
+
+                .removeOld:hover {
+                    background: white;
+                    color: black;
+                }
+
+
+            .div_wrapper {
+                overflow: hidden;
+            }
+
+            #one {
+                float: left;
+                width: auto;
+            }
+
+            #two {
+                overflow: hidden;
+            }
+
+
+            /* The Modal (background) */
+
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 99999999;
+                padding-top: 33px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background-color: rgba(0,0,0,0.7);
+            }
+
+                .modal img {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    -webkit-transform: translate(-50%, -50%);
+                    -moz-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                    -o-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+                }
+
+            /* Modal Content (image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 500px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+            /* Add Animation */
+            .modal-content, #caption {
+                -webkit-animation-name: zoom;
+                -webkit-animation-duration: 0.6s;
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #fff;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+                opacity: .5;
+                text-shadow: none;
+            }
+
+                .close:hover,
+                .close:focus {
+                    color: #bbb;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+        </style>
+

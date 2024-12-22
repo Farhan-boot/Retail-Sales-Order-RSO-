@@ -1,0 +1,50 @@
+﻿
+<div id="customScrolledTableInspac" style="overflow: auto; max-width: 1230px;">
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+
+    <div class="table table-responsive">
+        <table class="table table-bordered table-hover" style="margin-bottom: 0px; overflow: auto;">
+            <thead class="grid-top-panel">
+                <tr class="gr-header">
+                    <th hidden></th>
+                    <th hidden></th>
+                    @*<th style="text-align: center">SL #</th>*@
+                    <th class="col-xs-4">Survey Title</th>
+                    <th class="col-xs-4">Question</th>
+                    <th class="col-xs-2">Note</th>
+                    <th class="col-xs-.25"></th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="rowdiv" style="max-height: 200px; overflow: auto;">
+            <table style="width: 100%;">
+                <tr ng-repeat="dataModel in ListSurveyQuestion|filter:ListSurveyQuestionSearch" ng-class="{'rowselected':$index == selectedRow}" ng-click="setClickedRow($index)">
+                    <td hidden>{{dataModel.SURVEY_DETAIL_QID}}</td>
+                    <td hidden>{{dataModel.SURVEY_LIST_ID}}</td>
+                    @*<td style="text-align: center">1</td>*@
+                    <td class="col-xs-4"><span>{{dataModel.TITLE}}</span></td>
+                    <td class="col-xs-4"><span>{{dataModel.QUESTION}}</span></td>
+                    <td class="col-xs-2"><span>{{dataModel.NOTE}}</span></td>
+                    <td class="inputOptionClass col-xs-.25" style="text-align:center; min-width:50px; color:white">
+                        <span class="label label-info label-mini" style="text-align:center !important;">
+                            <a href="" title="Edit" ng-click="EditQuestion(row.entity)">
+                                <i class="icon-edit" aria-hidden="true"></i> Edit
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+

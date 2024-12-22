@@ -1,0 +1,27 @@
+﻿
+<div style="height: 20px;"></div>
+<label style="color:red; font-weight: bold">Total Record(s): </label><label style="color:red; font-weight: bold"> Total Target Value:  </label>
+<table class="table table-striped table-fixed">
+    <thead style="background-color: #ecf0f5">
+        <tr>
+            <th>RSO CODE</th>
+            <th>DENO</th>
+            <th>TARGET COUNT</th>
+            <th>DENO AMOUNT</th>
+            <th>DAT START</th>
+            <th>DAT END</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="excelData in uploadedExcelData">
+            <td>{{excelData.ROSCODE}}</td>
+            <td>{{excelData.DENO_ID}}</td>
+            <td>{{excelData.TARGET_COUNT}}</td>
+            <td>{{excelData.DENO_AMOUNT}}</td>
+            <td>{{excelData.DATE_START }}</td>
+            <td>{{excelData.DATE_END}}</td>
+           
+        </tr>
+    </tbody>
+</table>
+

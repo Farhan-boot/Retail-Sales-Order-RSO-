@@ -1,0 +1,75 @@
+﻿
+<form novalidate name="frmSearch" id="frmSearch" class="form-horizontal row-border">
+
+    <div class="row">
+
+
+        <div class="col-md-4" style="display:none">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Zone</label>
+                <div class="col-md-7">
+                    <select id="ddlZone" class="select2-select-00"
+                            ng-model="ZoneId"
+                            name="ddlZone"
+                            data-placeholder="--Select Zone--"
+                            style="width: 100%" ng-options="z.REGION_ID as z.REGION_NAME for z in zoneList">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">From Date :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtFromDate"
+                           class="form-control datepicker"
+                           ng-model="FromDate"
+                           name="txtFromDate" placeholder="dd/mm/yyyy" />
+                </div>
+                <span class="error"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">To Date :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtToDate"
+                           class="form-control datepicker"
+                           ng-model="ToDate"
+                           name="txtToDate" placeholder="dd/mm/yyyy" />
+                </div>
+                <span class="error"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-7" style="float:right; padding-left: 58px;">
+                    <span id="Show" class="btn btn-info margin-right-btn" ng-click="loadRSOPoints(0);">
+                        <i class="icon-search"></i> View Report
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
+
+

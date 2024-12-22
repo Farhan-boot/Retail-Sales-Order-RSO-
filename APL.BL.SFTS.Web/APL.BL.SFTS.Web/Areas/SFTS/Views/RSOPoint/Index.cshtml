@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "RSO Point";
+}
+
+<div ng-controller="tokenCtrl">
+    <div ng-controller="RSOPointCtrl">
+        <!-- Breadcrumbs line -->
+        <div>
+            @Html.Partial("~/Areas/SystemCommon/Views/Shared/_Partial/_TestBreadcrumbs.cshtml")
+        </div>
+        <!-- /Breadcrumbs line -->
+        <!--=== Page Header ===-->
+
+        <div style="height: 10px"></div>
+        <!-- /Page Header -->
+        <!--=== Page Content ===-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> {{PageTitle}}</h4>
+                        <div class="toolbar no-padding">
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+
+                        </div>
+                    </div>
+
+                    <div class="widget-content">
+                        <div>
+                            @Html.Partial("~/Areas/SFTS/Views/RSOPoint/_formRSOPoint.cshtml")
+                        </div>
+                    </div>
+
+                    <div class="widget-content">
+                        <div>
+                            @Html.Partial("~/Areas/SFTS/Views/RSOPoint/_tableRSOPoint.cshtml")
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- /.col-md-12 -->
+        </div>
+
+        <!--<div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> {{PageTitle}}</h4>
+                        <div class="toolbar no-padding">
+                            <span id="reset" class="btn btn-danger margin-right-btn" ng-show="btnResetShow" ng-click="clear()">
+                                <i class="icon-refresh"></i> Reset
+                            </span>
+                            <label class="btn btn-sm btn-info" ng-click="ExportExcelFile()">Export Excel</label>
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+
+                        </div>
+                    </div>
+
+                    <div class="widget-content" ng-show="IsShow">
+                        @Html.Partial("~/Areas/SFTS/Views/RSOPoint/_tableRSOPoint.cshtml")
+                    </div>
+
+                    <div class="row" ng-hide="IsHidden">
+                        <div class="col-md-12">
+                            <div class="widget-content no-padding">
+                                <div>
+                                    @Html.Partial("~/Areas/SFTS/Views/RSOPoint/_formRSOPoint.cshtml")
+                                </div>
+                            </div>
+                        </div>--> <!-- /.col-md-12 -->
+                    <!--</div>
+
+                </div>
+            </div>--> <!-- /.col-md-12 -->
+        <!--</div>-->
+    </div>
+</div>
+
+
+<!-- /.container -->
+@section AngularScript{
+    <script src="~/Areas/SFTS/ScriptsNg/Controllers/RSOPointCtrl.js"></script>
+    <script src="~/Areas/SFTS/ScriptsNg/Service/CrudService.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+    <script src="~/Areas/Token/TokenController.js"></script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

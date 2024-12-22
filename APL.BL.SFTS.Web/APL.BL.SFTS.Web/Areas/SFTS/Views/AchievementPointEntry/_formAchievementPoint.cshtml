@@ -1,0 +1,62 @@
+﻿
+
+<form novalidate name="frmAchievementPoints" id="frmAchievementPoints" class="form-horizontal row-border">
+    <input type="hidden" id="hAchievementPointId" readonly="readonly" ng-model="hAchievementPointId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Point Name :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtPointName"
+                           class="form-control"
+                           ng-model="PointName"
+                           name="txtPointName" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Point Code :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtPointCode"
+                           class="form-control"
+                           ng-model="PointCode"
+                           name="txtPointCode" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Point Score :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtPointScore"
+                           class="form-control"
+                           ng-model="PointScore"
+                           name="txtPointScore" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Is Active :</label>
+                <div class="col-md-6">
+                    <input type="radio"
+                           ng-model="IsActive"
+                           name="isactive" value="1" required />  Yes
+                    <input type="radio"
+                           ng-model="IsActive"
+                           name="isactive" value="0" required /> No
+                </div>
+                <span class="error"></span>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+
+

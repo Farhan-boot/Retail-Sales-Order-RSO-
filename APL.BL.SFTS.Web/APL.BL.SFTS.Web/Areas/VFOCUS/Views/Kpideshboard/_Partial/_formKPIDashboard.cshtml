@@ -1,0 +1,132 @@
+﻿
+<form novalidate name="frmNewGraphInfo" id="frmNewGraphInfo" class="form-horizontal row-border">
+    <input type="hidden" id="hGraphId" readonly="readonly" ng-model="hGraphId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">KPI 1:</label>
+                <div class="col-md-6">
+                    <select id="ddllistKPI1" class="select2-select-00"
+                            ng-model="listKPIModel1"
+                            ng-disabled="IslistKPIDisabled"
+                            name="ddllistKPI1"
+                            data-placeholder="--Select KPI--"
+                            ng-change="loadKPIGRAPHLIST(1, listKPIModel1)"
+                            style="width: 100%" ng-options="dist.KPI_KEY as dist.KPI_NAME for dist in listKPI" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+            
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">Graph 1:</label>
+                <div class="col-md-6">
+                    <select id="ddllistGRPH1" class="select2-select-00"
+                            ng-model="listGRAPHModel1"
+                            ng-disabled="IslistGRAPHDisabled1"
+                            name="ddllistGRPH1"
+                            data-placeholder="--Select GRAPH--"                            
+                            style="width: 100%" ng-options="dist.GRAPH_ID as dist.GRAPH_CODE for dist in Graphlist1" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">KPI 2:</label>
+                <div class="col-md-6">
+                    <select id="ddllistKPI2" class="select2-select-00"
+                            ng-model="listKPIModel2"
+                            ng-disabled="IslistKPIDisabled2"
+                            name="ddllistKPI2"
+                            data-placeholder="--Select KPI--"
+                            ng-change="loadKPIGRAPHLIST(2, listKPIModel2)"
+                            style="width: 100%" ng-options="dist.KPI_KEY as dist.KPI_NAME for dist in listKPI" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">Graph 2:</label>
+                <div class="col-md-6">
+                    <select id="ddllistGRPH2" class="select2-select-00"
+                            ng-model="listGRAPHModel2"
+                            ng-disabled="IslistGRAPHDisabled2"
+                            name="ddllistGRPH2"
+                            data-placeholder="--Select GRAPH--"
+                            style="width: 100%" ng-options="dist.GRAPH_ID as dist.GRAPH_CODE for dist in Graphlist2" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">KPI 3:</label>
+                <div class="col-md-6">
+                    <select id="ddllistKPI3" class="select2-select-00"
+                            ng-model="listKPIModel3"
+                            ng-disabled="IslistKPIDisabled3"
+                            name="ddllistKPI3"
+                            data-placeholder="--Select KPI--"
+                            ng-change="loadKPIGRAPHLIST(3, listKPIModel3)"
+                            style="width: 100%" ng-options="dist.KPI_KEY as dist.KPI_NAME for dist in listKPI" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">Graph 3:</label>
+                <div class="col-md-6">
+                    <select id="ddllistGRPH3" class="select2-select-00"
+                            ng-model="listGRAPHModel3"
+                            ng-disabled="IslistGRAPHDisabled3"
+                            name="ddllistGRPH3"
+                            data-placeholder="--Select GRAPH--"
+                            style="width: 100%" ng-options="dist.GRAPH_ID as dist.GRAPH_CODE for dist in Graphlist3" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+
+
+</form>
+

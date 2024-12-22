@@ -1,0 +1,232 @@
+﻿
+
+
+<form novalidate name="frmRetailerTargets" id="frmRetailerTargets" class="form-horizontal row-border">
+    <input type="hidden" id="hRetailerTargetId" readonly="readonly" ng-model="hRetailerTargetId" />
+    <div class="row" ng-show="IsUpdate==true">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Staff Code :</label>
+                <div class="col-md-6">
+                    {{STAFF_CODE}}
+                </div>
+                <span class="error"></span>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Item :</label>
+                <div class="col-md-6">
+                    <select id="ddlItem" class="select2-select-00"
+                            ng-model="ITEM_ID"
+                            name="ddlItem"
+                            data-placeholder="--Select Target Item--"
+                            style="width: 100%" ng-options="ct.ID as ct.ITEM_NAME for ct in targetItemList" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Period :</label>
+                <div class="col-md-6">
+                    <select id="ddlPeriod" class="select2-select-00"
+                            ng-model="PERIOD_ID"
+                            name="ddlPeriod"
+                            data-placeholder="--Select Target Period--"
+                            style="width: 100%" ng-options="ct.ID as ct.PERIOD_NAME for ct in targetPeriodList" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtTarget"
+                           class="form-control"
+                           ng-model="TARGET"
+                           value="{{TARGET}}"
+                           name="txtTarget" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Staff Type :</label>
+                <div class="col-md-6">
+                    {{STAFF_TYPE}}
+                </div>
+                <span class="error"></span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">From Date :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtFromDate"
+                           class="form-control datepicker"
+                           ng-model="SET_DATE"
+                           value="{{SET_DATE}}"
+                           name="txtFromDate" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">
+                    To Date :
+                </label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtToDate"
+                           class="form-control datepicker"
+                           ng-model="UP_TO"
+                           value="{{UP_TO}}"
+                           name="txtToDate" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row" ng-show="IsUpdate==false">
+
+
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Item :</label>
+                <div class="col-md-6">
+                    <select id="ddlItem1" class="select2-select-00"
+                            ng-model="ITEM_ID"
+                            name="ddlItem1"
+                            data-placeholder="--Select Target Item--"
+                            style="width: 100%" ng-options="ct.ID as ct.ITEM_NAME for ct in targetItemList" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Period :</label>
+                <div class="col-md-6">
+                    <select id="ddlPeriod1" class="select2-select-00"
+                            ng-model="PERIOD_ID"
+                            name="ddlPeriod1"
+                            data-placeholder="--Select Target Period--"
+                            style="width: 100%" ng-options="ct.ID as ct.PERIOD_NAME for ct in targetPeriodList" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Upload Retailer Target :</label>
+                <div class="col-md-6">
+                    <input type="file" name="uploadedExcelFile" id="uploadedExcelFile" multiple>
+                    @*<label type="button" ng-click="loadCriticalTempBalances(0);"  class="btn btn-info btn-sm"  >Upload</label>*@
+                </div>
+                <span class="error">*</span>
+            </div>
+            <input type="hidden" id="hdExcelFileName" />
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Set Date :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtFromDate"
+                           class="form-control datepicker"
+                           ng-model="SET_DATE"
+                           value="{{SET_DATE}}"
+                           name="txtFromDate" placeholder="dd/mm/yyyy" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">
+                    Revision Up To :
+                </label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtToDate"
+                           class="form-control datepicker"
+                           ng-model="UP_TO"
+                           value="{{UP_TO}}"
+                           name="txtToDate" placeholder="dd/mm/yyyy" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <!--<div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target For :</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetFor" class="select2-select-00"
+                            ng-model="TargetFor"
+                            name="ddlTargetFor"
+                            data-placeholder="--Select Target For--"
+                            style="width: 100%" required>
+                        <option value=""></option>-->
+            @*<option value="ZERO_SIM">SIM</option>
+                <option value="ZERO_SC">Scrach Card</option>
+                <option value="ZERO_TOPUP">Topup</option>*@
+            <!--</select>
+                </div>
+                <span class="error">*</span>
+            </div>-->
+        </div>
+
+    </div>
+
+</form>
+
+
+<form novalidate name="tableCriticalTempBalances" id="tableCriticalTempBalances" class="form-horizontal row-border" ng-show="IsUpdate==false">
+    <div class="row" style="display:none">
+
+        <div ui-grid="gridOptionsRetailerTempTargets"
+             ui-grid-resize-columns
+             ui-grid-auto-resize
+             ui-grid-move-columns
+             ui-grid-exporter
+             ui-grid-pinning class="grid"></div>
+
+        <div class="loadmore">
+            <div ng-show="loaderMoreRetailerTempTargets" ng-class="result">
+                <img src="~/Content/img/ng-loader.gif" />
+                {{lblMessageForRetailerTempTargets}}
+            </div>
+        </div>
+
+
+
+    </div>
+</form>
+
+<style type="text/css">
+    .btn .caret, .ui-state-default .caret, .ui-widget-content .ui-state-default .caret, .ui-widget-header .ui-state-default .caret, .ColVis_MasterButton .caret, .fc-state-default .caret {
+        border-top-color: #333333 !important;
+        margin-top: 0;
+        margin-left: 155px !important;
+        vertical-align: middle;
+    }
+
+    .multiselect-parent {
+        width: 100% !important;
+    }
+</style>
+
+
+

@@ -1,0 +1,35 @@
+﻿
+<form novalidate name="tableEventCreate" id="tableEventCreate" class="form-horizontal row-border">
+    <div class="row">
+
+        <div ui-grid="gridOptionsEventCreate"
+             ui-grid-resize-columns
+             ui-grid-auto-resize
+             ui-grid-move-columns
+             ui-grid-exporter
+             ui-grid-pinning class="grid"></div>
+
+        <div class="loadmore">
+            <div ng-show="loaderMoreEventCreate" ng-class="result">
+                <img src="~/Content/img/ng-loader.gif" />
+                {{lblMessageForEventCreate}}
+            </div>
+        </div>
+
+   
+
+    </div>
+</form>
+
+<style type="text/css">
+    .btn .caret, .ui-state-default .caret, .ui-widget-content .ui-state-default .caret, .ui-widget-header .ui-state-default .caret, .ColVis_MasterButton .caret, .fc-state-default .caret {
+        border-top-color: #333333 !important;
+        margin-top: 0;
+        margin-left: 155px !important;
+        vertical-align: middle;
+    }
+
+    .multiselect-parent {
+        width: 100% !important;
+    }
+</style>

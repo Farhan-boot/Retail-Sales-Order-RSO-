@@ -1,0 +1,51 @@
+﻿@model IEnumerable<APL.BL.SFTS.DataBridgeZone.GET_B2CSCAPPTARGETPROCESS>
+
+<div style="height: 20px;"></div>
+
+@if (Model != null)
+{
+    <label style="color:red; font-weight: bold">Total Record(s):  </label>
+                                <input id="uploadCode" hidden="hidden" value="" />
+                                <input id="hTargetId" hidden="hidden" ng-model="hTargetId" />
+                                <input id="hVersion" hidden="hidden" ng-model="hVersion" />
+                                <table class="table table-striped table-fixed">
+                                    <thead style="background-color: #ecf0f5">
+                                        <tr>
+                                            <th>TARGET DATE</th>
+                                            <th>REGION</th>
+                                            <th>DD CODE</th>
+                                            <th>DD NAME</th>
+                                            <th>RP SIM</th>
+                                            <th>RP EV</th>
+                                            <th>GA</th>
+                                            <th>DS EV</th>
+                                            <th>DS SC</th>
+                                            <th>TOTAL DS</th>
+                                            <th>RECH SC</th>
+                                            <th>RECH EV</th>
+                                            <th>TOTAL RECH</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.TARGET_DATE </td>
+                                                <td>@item.REGION </td>
+                                                <td>@item.DD_CODE </td>
+                                                <td>@item.DD_NAME </td>
+                                                <td>@item.RP_SIM</td>
+                                                <td>@item.RP_EV</td>
+                                                <td>@item.GA</td>
+                                                <td>@item.DS_EV<td>
+                                                <td>@item.DS_SC</td>
+                                                <td>@item.TOTAL_DS</td>
+                                                <td>@item.RECH_SC<td>
+                                                <td>@item.RECH_EV</td>
+                                                <td>@item.TOTAL_RECH</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+}

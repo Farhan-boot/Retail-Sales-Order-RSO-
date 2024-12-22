@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Complain";
+}
+
+<div ng-controller="tokenCtrl">
+    <div ng-controller="ComplainCtlr">
+        <!-- Breadcrumbs line -->
+        <div>
+            @Html.Partial("~/Areas/SystemCommon/Views/Shared/_Partial/_TestBreadcrumbs.cshtml")
+        </div>
+        <!-- /Breadcrumbs line -->
+
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("~/Areas/SystemCommon/Views/ConfirmAlert/_ConfirmAlertModal.cshtml")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Partial("~/Areas/SystemCommon/Views/WaitAlert/_WaitAlertModal.cshtml")
+            </div>
+        </div>
+
+        <!--=== Page Header ===-->
+
+        <div style="height: 10px"></div>
+        <!-- /Page Header -->
+        <!--=== Page Content ===-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> {{PageTitle}}</h4>
+                        <div class="toolbar no-padding">
+
+                            <span id="Show" ng-show="btnListShow" class="btn btn-info margin-right-btn" ng-click="ShowHide()">
+                                <i class="icon-search" ng-show="IsListIcon"></i> <i ng-show="IsCreateIcon" class="icon-plus-sign"></i> {{btnShowText}}
+                            </span>
+                            <span id="save" class="btn btn-success margin-right-btn" ng-show="btnSaveShow" ng-click="save()" ng-disabled="IsSaveDisabled">
+                                <i class="icon-check"></i> {{btnSaveText}}
+                            </span>
+
+                            @*<span id="reject" class="btn btn-danger margin-right-btn" ng-disabled="IsRejectDisabled" ng-show="btnRejectShow" ng-click="save(0)">
+                                    <i class="icon-ban-circle"></i> Reject
+                                </span>*@
+
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+
+                        </div>
+                    </div>
+
+                    <div class="widget-content" ng-show="IsShow">
+                        <div>
+                            @Html.Partial("~/Areas/SFTS/Views/Complain/_Partial/_formComplainSearch.cshtml")
+                        </div>
+
+                        <div>
+                            @Html.Partial("~/Areas/SFTS/Views/Complain/_Partial/_tableComplain.cshtml")
+                        </div>
+                    </div>
+
+                    <div class="row" ng-hide="IsHidden">
+                        <div class="col-md-12">
+                            <div class="widget-content no-padding">
+                                <div>
+                                    @Html.Partial("~/Areas/SFTS/Views/Complain/_Partial/_formComplain.cshtml")
+                                </div>
+                                <h4 style="padding-left: 15px;"><i class="icon-reorder"></i> Complain Pictures</h4>
+                                <div>
+                                    @Html.Partial("~/Areas/SFTS/Views/Complain/_Partial/_formComplainPicture.cshtml")
+                                </div>
+                            </div>
+
+                        </div> <!-- /.col-md-12 -->
+                    </div>
+                </div>
+            </div> <!-- /.col-md-12 -->
+        </div>
+    </div>
+</div>
+
+<!-- /.container -->
+@section AngularScript{
+    <script src="~/Areas/SFTS/ScriptsNg/Controllers/ComplainCtlr.js"></script>
+    <script src="~/Areas/SFTS/ScriptsNg/Service/CrudService.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+    <script src="~/Areas/Token/TokenController.js"></script>
+}
+
+
+
+
+
+
+
+
+
+
+

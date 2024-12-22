@@ -1,0 +1,7 @@
+﻿<div ng-if="IsMapShow">
+    <ng-map center="{{latValue}}, {{longValue}}" zoom="13">
+        <marker position="{{latValue}}, {{longValue}}"
+                animation="DROP"
+                draggable="true"></marker>
+    </ng-map>
+</div>

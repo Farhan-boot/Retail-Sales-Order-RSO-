@@ -1,0 +1,56 @@
+﻿
+<form novalidate name="frmSearch" id="frmSearch" class="form-horizontal row-border">
+
+    <div class="row">
+        <div class="form-group"  m-b-10 clearfix" >
+            <label class="col-md-2 control-label" for="input17">Survey :</label>
+            <div class="col-md-4">
+                <select id="ddlSurvey" class="select2-select-00"
+                        ng-model="SurveyId"
+                        name="ddlSurvey"
+                        data-placeholder="--Select Survey--"
+                        style="width: 100%" ng-options="ct.SURVEYLIST_ID as ct.TITLE for ct in surveyList">
+                    <option></option>
+                </select>
+
+            </div>
+            <span class="error"></span>
+        </div>
+        @*<div class="form-group  m-b-10 clearfix">
+            <label class="col-md-2 control-label" for="input17">Survey  Name :</label>
+            <div class="col-md-4">
+                <input type="text"
+                       id="txtSurveyName"
+                       class="form-control"
+                       ng-model="SurveyName"
+                       name="txtSurveyName" placeholder="Survey  Name" />
+            </div>
+            <span class="error"></span>
+        </div>*@
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-7" style="float:right; padding-left: 58px;">
+                    <span id="Show" class="btn btn-info margin-right-btn" ng-click="GetSurveyResult()" ng-disabled="frmSearch.$invalid">
+                        <i class="icon-search"></i> View Report
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
+

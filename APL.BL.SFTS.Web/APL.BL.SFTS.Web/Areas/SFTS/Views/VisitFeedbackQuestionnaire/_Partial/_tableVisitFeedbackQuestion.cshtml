@@ -1,0 +1,49 @@
+﻿
+<div id="customScrolledTableInspac" style="overflow: auto; max-width: 1230px;">
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+
+    <div class="table table-responsive">
+        <table class="table table-bordered table-hover" style="margin-bottom: 0px; overflow: auto;">
+            <thead class="grid-top-panel">
+                <tr class="gr-header">
+                    <th hidden></th>
+                    <th class="" style="width: 100px;">Display Order</th>
+                    <th class="col-xs-9">Question Text</th>
+                    <th class="col-xs-.25" style="text-align: center;">Option</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="rowdiv" style="max-height: 200px; overflow: auto;">
+            <table style="width: 100%;">
+                <tr ng-repeat="dataModel in FeedbackQuestionList|filter:ListSurveyQuestionSearch" ng-class="{'rowselected':$index == selectedRow}" ng-click="setClickedRow($index)">
+                    <td hidden>{{dataModel.FEEDBACK_QUESTION_ID}}</td>
+                    <td style="width: 100px;">{{dataModel.DISPLAY_ORDER}}</td>
+                    <td class="col-xs-9"><span>{{dataModel.QUESTION_TEXT}}</span></td>
+                    <td class="inputOptionClass col-xs-.25" style="text-align:center; min-width:50px; color:white">
+                        <span class="label label-info label-mini" style="text-align:center !important;">
+                            <a href="" title="Edit" ng-click="GetQuestion(dataModel.FEEDBACK_QUESTION_ID)">
+                                <i class="icon-edit" aria-hidden="true"></i> Edit
+                            </a>
+                        </span>
+                        <span class="label label-warning label-mini" style="text-align:center !important;">
+                            <a href="" title="Delete" ng-click="DeleteQuestion(row.entity)">
+                                <i class="icon-trash" aria-hidden="true"></i> Delete
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+

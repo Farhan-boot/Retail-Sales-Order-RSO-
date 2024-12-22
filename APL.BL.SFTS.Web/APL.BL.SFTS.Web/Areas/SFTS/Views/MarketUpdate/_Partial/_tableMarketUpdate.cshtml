@@ -1,0 +1,22 @@
+﻿
+<form novalidate name="tableMarketUpdate" id="tableMarketUpdate" class="form-horizontal row-border">
+    <div class="row">
+
+        <div ui-grid="gridOptionsMarketUpdate"
+             ui-grid-resize-columns
+             ui-grid-auto-resize
+             ui-grid-move-columns
+             ui-grid-exporter
+             ui-grid-pinning class="grid"></div>
+
+        <div class="loadmore">
+            <div ng-show="loaderMoreMarketUpdate" ng-class="result">
+                <img src="~/Content/img/ng-loader.gif" />
+                {{lblMessageForMarketUpdate}}
+            </div>
+        </div>
+
+
+
+    </div>
+</form>

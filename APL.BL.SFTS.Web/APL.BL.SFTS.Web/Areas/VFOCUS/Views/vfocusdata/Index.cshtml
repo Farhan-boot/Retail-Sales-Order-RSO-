@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Sales target data upload";
+}
+
+<!-- Breadcrumbs line -->
+<div>
+    @Html.Partial("~/Areas/SystemCommon/Views/Shared/_Partial/_TestBreadcrumbs.cshtml")
+</div>
+<!-- /Breadcrumbs line -->
+<!--=== Page Header ===-->
+
+<div style="height: 10px"></div>
+<div ng-controller="tokenCtrl">
+    <div ng-controller="TargetSetupCtlr">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> Sales target data upload</h4>
+                        <div class="toolbar no-padding">                           
+                            <span id="reset" class="btn btn-danger margin-right-btn" ng-click="clear()">
+                                <i class="icon-refresh"></i> Reset
+                            </span>
+                            <span id="save" class="btn btn-primary margin-right-btn" ng-click="ExportExcelFile()">
+                                <i class="icon-download"></i> Download Template
+                            </span>
+                            <span id="Show" class="btn btn-info margin-right-btn" ng-click="ShowHide()">
+                                <i class="icon-search" ng-show="IsListIcon"></i> <i ng-show="IsCreateIcon" class="icon-plus-sign"></i> {{btnShowText}}
+                            </span>
+
+                            <span id="save" class="btn btn-success margin-right-btn" ng-click="save()" ng-disabled="frmDistributorTarget.$invalid || IsSaveBtnDisabled">
+                                <i class="icon-save"></i> Save
+                            </span>
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+                        </div>
+                    </div>
+
+
+                      <div ng-show="IsShow">
+                        <div class="widget-content">
+                                @Html.Partial("~/Areas/VFOCUS/Views/vfocusdata/_Partial/_formTargetSetup.cshtml")
+
+                            @*@using (Html.BeginForm("ExportFile", "TargetSetup", FormMethod.Get))
+                            {
+                                <input type="submit" class="btn btn-primary" name="btnExport" value="Get Excel" id="export" />
+                            }*@
+                              <div ng-show="IsExcelDataShow">
+                                  @Html.Partial("~/Areas/VFOCUS/Views/vfocusdata/_Partial/_tableExcelFileData.cshtml")
+                              </div>   
+                            <div ng-show="IsStaffExcelDataShow">
+                                <div ng-show="IsRSOShow">
+                                    @Html.Partial("~/Areas/VFOCUS/Views/vfocusdata/_Partial/_tableRsoExcelFileData.cshtml")
+                                </div>
+                                <div ng-show="IsMonoBrandShow">
+                                    @Html.Partial("~/Areas/VFOCUS/Views/vfocusdata/_Partial/_tableMonoBrandExcelFileData.cshtml")
+                                </div>                              
+                            </div>                              
+                            </div>
+                        </div>
+
+                        <div class="row" ng-hide="IsHidden">
+                            <div class="col-md-12">
+                                <div class="widget-content no-padding">
+                                    <div>
+                                        @Html.Partial("~/Areas/VFOCUS/Views/vfocusdata/_Partial/_tableTarget.cshtml")
+                                    </div>
+                                </div>
+
+                            </div> <!-- /.col-md-12 -->
+                        </div>
+                    </div>
+                </div> <!-- /.col-md-12 -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @section AngularScript{
+        <script src="~/Areas/VFOCUS/ScriptsNg/Controllers/salestargetCtlr.js"></script>
+        <script src="~/Areas/VFOCUS/ScriptsNg/Service/CrudService.js"></script>
+        <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+        <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+        <script src="~/Areas/Token/TokenController.js"></script>
+    }
+
+
+<style type="text/css">
+ #fileLoader
+{
+    display:none;
+}
+</style>

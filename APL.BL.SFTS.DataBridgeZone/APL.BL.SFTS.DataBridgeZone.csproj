@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C2430880-1A41-43C0-9D4A-0F1BF67F57B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>APL.BL.SFTS.DataBridgeZone</RootNamespace>
+    <AssemblyName>APL.BL.SFTS.DataBridgeZone</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.2400\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Http.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Http.Common.4.0.20126.16343\lib\net40\System.Web.Http.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiMobileModel\BiometricDeviceReturn.cs" />
+    <Compile Include="ApiMobileModel\AchievementPoint.cs" />
+    <Compile Include="ApiMobileModel\ChangeAppPassword.cs" />
+    <Compile Include="ApiMobileModel\CheckDevice.cs" />
+    <Compile Include="ApiMobileModel\CheckDeviceUser.cs" />
+    <Compile Include="ApiMobileModel\CheckUserCodeDeviceOTP.cs" />
+    <Compile Include="ApiMobileModel\CriticalBalance.cs" />
+    <Compile Include="ApiMobileModel\EV_MinMaxLimit.cs" />
+    <Compile Include="ApiMobileModel\FocProduct.cs" />
+    <Compile Include="ApiMobileModel\getAdhocReport.cs" />
+    <Compile Include="ApiMobileModel\getCriticalRetailers.cs" />
+    <Compile Include="ApiMobileModel\GetDenoReport.cs" />
+    <Compile Include="ApiMobileModel\GetGroupMenus.cs" />
+    <Compile Include="ApiMobileModel\GetIssuePosm.cs" />
+    <Compile Include="ApiMobileModel\GetIssueStatus.cs" />
+    <Compile Include="ApiMobileModel\getIsValidProductQty.cs" />
+    <Compile Include="ApiMobileModel\GetMenuGroup.cs" />
+    <Compile Include="ApiMobileModel\GetMenuGroupBySingleAndGroup.cs" />
+    <Compile Include="ApiMobileModel\GetMenuGroupItem.cs" />
+    <Compile Include="ApiMobileModel\GetMSISDN.cs" />
+    <Compile Include="ApiMobileModel\getMtoVisitMtdData.cs" />
+    <Compile Include="ApiMobileModel\getMtoVisitMtdDtlsData.cs" />
+    <Compile Include="ApiMobileModel\GetNotification.cs" />
+    <Compile Include="ApiMobileModel\getProductByType.cs" />
+    <Compile Include="ApiMobileModel\getProductCategory.cs" />
+    <Compile Include="ApiMobileModel\getProductList.cs" />
+    <Compile Include="ApiMobileModel\getProductTypes.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerDemand.cs" />
+    <Compile Include="ApiMobileModel\getRetailerListFrMto.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerTodayAchivement.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerTopupBalance.cs" />
+    <Compile Include="ApiMobileModel\GetRetTopupStatus.cs" />
+    <Compile Include="ApiMobileModel\GetReturnMemo.cs" />
+    <Compile Include="ApiMobileModel\getRouteListFrMto.cs" />
+    <Compile Include="ApiMobileModel\GetRSOStock.cs" />
+    <Compile Include="ApiMobileModel\GetRSOTopupBalance.cs" />
+    <Compile Include="ApiMobileModel\getRsoVisitMtdData.cs" />
+    <Compile Include="ApiMobileModel\getRsoVisitMtdDtlsData.cs" />
+    <Compile Include="ApiMobileModel\GetTopupIssueHistory.cs" />
+    <Compile Include="ApiMobileModel\GetTopupIssueStatus.cs" />
+    <Compile Include="ApiMobileModel\GetReturnStatus.cs" />
+    <Compile Include="ApiMobileModel\GetProdReturnStatus.cs" />
+    <Compile Include="ApiMobileModel\GetHighlights.cs" />
+    <Compile Include="ApiMobileModel\GetSalesMemo.cs" />
+    <Compile Include="ApiMobileModel\GetProdRetrnId.cs" />
+    <Compile Include="ApiMobileModel\GetDeliveryStatus.cs" />
+    <Compile Include="ApiMobileModel\GetDlivStatus.cs" />
+    <Compile Include="ApiMobileModel\GroupItemMap.cs" />
+    <Compile Include="ApiMobileModel\IssuePosm.cs" />
+    <Compile Include="ApiMobileModel\MenuGroup.cs" />
+    <Compile Include="ApiMobileModel\MenuItem.cs" />
+    <Compile Include="ApiMobileModel\NoticeSetup.cs" />
+    <Compile Include="ApiMobileModel\NOTICE_FOR.cs" />
+    <Compile Include="ApiMobileModel\RetailerCheckin.cs" />
+    <Compile Include="ApiMobileModel\RetailerTarget.cs" />
+    <Compile Include="ApiMobileModel\RetailerTodayAchievement.cs" />
+    <Compile Include="ApiMobileModel\SP_GET_TOPUP_ISSUE.cs" />
+    <Compile Include="ApiMobileModel\TopupIssue.cs" />
+    <Compile Include="ApiMobileModel\GetTopupIssueRetailer.cs" />
+    <Compile Include="ApiMobileModel\TopupIssueRetailer.cs" />
+    <Compile Include="ApiMobileModel\GetSimSts.cs" />
+    <Compile Include="ApiMobileModel\GetSimStatus.cs" />
+    <Compile Include="ApiMobileModel\GetProdFrmSerial.cs" />
+    <Compile Include="ApiMobileModel\GetProdFrmSl.cs" />
+    <Compile Include="ApiMobileModel\GetTodayHighlights.cs" />
+    <Compile Include="ApiMobileModel\GetCriticalRetailer.cs" />
+    <Compile Include="ApiMobileModel\RetailerLocationUpdate.cs" />
+    <Compile Include="ApiMobileModel\ProductDelivery.cs" />
+    <Compile Include="ApiMobileModel\GetDeliveredMemoSerial.cs" />
+    <Compile Include="ApiMobileModel\GetSurveyList.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerWiseProductQty.cs" />
+    <Compile Include="ApiMobileModel\GetMemoDetail.cs" />
+    <Compile Include="ApiMobileModel\GetRsoDetails.cs" />
+    <Compile Include="ApiMobileModel\GetVisitDetail.cs" />
+    <Compile Include="ApiMobileModel\GetTodaySales.cs" />
+    <Compile Include="ApiMobileModel\GetRsoTargetAchivement.cs" />
+    <Compile Include="ApiMobileModel\GetRoutePerformance.cs" />
+    <Compile Include="ApiMobileModel\RoutePerformance.cs" />
+    <Compile Include="ApiMobileModel\MarketUpdateSaveResult.cs" />
+    <Compile Include="ApiMobileModel\SalesReturn.cs" />
+    <Compile Include="ApiMobileModel\SalesReturnProductSerial.cs" />
+    <Compile Include="ApiMobileModel\SalesReturnProduct.cs" />
+    <Compile Include="ApiMobileModel\SearchParam.cs" />
+    <Compile Include="ApiMobileModel\TopBottomRetailer.cs" />
+    <Compile Include="ApiMobileModel\ComplainPicture.cs" />
+    <Compile Include="ApiMobileModel\GetTopBottomRetailers.cs" />
+    <Compile Include="ApiMobileModel\GetPerformanceKpi.cs" />
+    <Compile Include="ApiMobileModel\GetComplainStatus.cs" />
+    <Compile Include="ApiMobileModel\GetComplainType.cs" />
+    <Compile Include="ApiMobileModel\Complain.cs" />
+    <Compile Include="ApiMobileModel\GetFeedbackOption.cs" />
+    <Compile Include="ApiMobileModel\GetFocProducts.cs" />
+    <Compile Include="ApiMobileModel\GetRSOBestPractice.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerBestPractice.cs" />
+    <Compile Include="ApiMobileModel\PasswordRecoveryReqest.cs" />
+    <Compile Include="ApiMobileModel\RetailerCheckout.cs" />
+    <Compile Include="ApiMobileModel\Thana.cs" />
+    <Compile Include="ApiMobileModel\Authentication.cs" />
+    <Compile Include="ApiMobileModel\CenterLocationUpdate.cs" />
+    <Compile Include="ApiMobileModel\ClosingStatus.cs" />
+    <Compile Include="ApiMobileModel\CmnParam.cs" />
+    <Compile Include="ApiMobileModel\CommissionStructure.cs" />
+    <Compile Include="ApiMobileModel\CommissionPic.cs" />
+    <Compile Include="ApiMobileModel\GetCommissionStructure.cs" />
+    <Compile Include="ApiMobileModel\Params.cs" />
+    <Compile Include="ApiMobileModel\CurrentOffer.cs" />
+    <Compile Include="ApiMobileModel\FeedbackQuestionAnswer.cs" />
+    <Compile Include="ApiMobileModel\GetCenters.cs" />
+    <Compile Include="ApiMobileModel\GetThana.cs" />
+    <Compile Include="ApiMobileModel\GetEventInfo.cs" />
+    <Compile Include="ApiMobileModel\GetDistrict.cs" />
+    <Compile Include="ApiMobileModel\GetOperatorCode.cs" />
+    <Compile Include="ApiMobileModel\GetMarketUpdateType.cs" />
+    <Compile Include="ApiMobileModel\GetRsoRoute.cs" />
+    <Compile Include="ApiMobileModel\GetRsoRouteWiseRetailer.cs" />
+    <Compile Include="ApiMobileModel\GetRsoTargetVsAchivement.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerCurrentInfo.cs" />
+    <Compile Include="ApiMobileModel\GetSalesAndStock.cs" />
+    <Compile Include="ApiMobileModel\GetSafCollectionLog.cs" />
+    <Compile Include="ApiMobileModel\GetMemo.cs" />
+    <Compile Include="ApiMobileModel\GetCommissionStructurePicture.cs" />
+    <Compile Include="ApiMobileModel\GetComplain.cs" />
+    <Compile Include="ApiMobileModel\GetCurrentOffer.cs" />
+    <Compile Include="ApiMobileModel\GetCurrentOfferPicture.cs" />
+    <Compile Include="ApiMobileModel\GetFeedbackQuestion.cs" />
+    <Compile Include="ApiMobileModel\GetLiftingDetail.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerCreateRequest.cs" />
+    <Compile Include="ApiMobileModel\GetCommissionHistory.cs" />
+    <Compile Include="ApiMobileModel\GetMemoNo.cs" />
+    <Compile Include="ApiMobileModel\GetMessage.cs" />
+    <Compile Include="ApiMobileModel\GetProducts.cs" />
+    <Compile Include="ApiMobileModel\GetRetailerDashboardSummary.cs" />
+    <Compile Include="ApiMobileModel\GetShopClosingStatus.cs" />
+    <Compile Include="ApiMobileModel\GetShopStock.cs" />
+    <Compile Include="ApiMobileModel\GetShopTargetAchive.cs" />
+    <Compile Include="ApiMobileModel\GetVisitPlan.cs" />
+    <Compile Include="ApiMobileModel\GetVisitPlanSummary.cs" />
+    <Compile Include="ApiMobileModel\GetFocIssuedProduct.cs" />
+    <Compile Include="ApiMobileModel\GetVistPlan.cs" />
+    <Compile Include="ApiMobileModel\MarketUpdatePicture.cs" />
+    <Compile Include="ApiMobileModel\TradeMaterialIssue.cs" />
+    <Compile Include="ApiMobileModel\TradeMaterials.cs" />
+    <Compile Include="ApiMobileModel\RetailerModifyRequest.cs" />
+    <Compile Include="ApiMobileModel\SafCollectionLog.cs" />
+    <Compile Include="ApiMobileModel\PlannedMarketArea.cs" />
+    <Compile Include="ApiMobileModel\Retailer.cs" />
+    <Compile Include="ApiMobileModel\MarketUpdate.cs" />
+    <Compile Include="ApiMobileModel\RetailerCreateRequest.cs" />
+    <Compile Include="ApiMobileModel\RSO.cs" />
+    <Compile Include="ApiMobileModel\SalesMemo.cs" />
+    <Compile Include="ApiMobileModel\SalesMemoProduct.cs" />
+    <Compile Include="ApiMobileModel\SalesMemoProductSerial.cs" />
+    <Compile Include="ApiMobileModel\SaveResult.cs" />
+    <Compile Include="ApiMobileModel\Shop.cs" />
+    <Compile Include="ApiMobileModel\ShopTargetAchivement.cs" />
+    <Compile Include="ApiMobileModel\TrainingContent.cs" />
+    <Compile Include="ApiMobileModel\TrainingSection.cs" />
+    <Compile Include="ApiMobileModel\TrainingSectionList.cs" />
+    <Compile Include="ApiMobileModel\Visit.cs" />
+    <Compile Include="ApiMobileModel\vmCollectedSaf.cs" />
+    <Compile Include="BasicInfo\DistributorDZ.cs" />
+    <Compile Include="BasicInfo\EventInfoDZ.cs" />
+    <Compile Include="BasicInfo\RegionDZ.cs" />
+    <Compile Include="BasicInfo\RouteDZ.cs" />
+    <Compile Include="BasicInfo\UserInfoDZ.cs" />
+    <Compile Include="Common\MenuDZ.cs" />
+    <Compile Include="Common\MenuGroupDZ.cs" />
+    <Compile Include="Common\MenuGroupItemMapDZ.cs" />
+    <Compile Include="Common\MenuItemDZ.cs" />
+    <Compile Include="Message Package\CurrentOfferDZ.cs" />
+    <Compile Include="Message Package\NotificationDZ.cs" />
+    <Compile Include="Message Package\TickerMessageDZ.cs" />
+    <Compile Include="Monobrand\VisitPlanDZ.cs" />
+    <Compile Include="Notice\NoticeSetupDZ.cs" />
+    <Compile Include="Posm\MtoDZ.cs" />
+    <Compile Include="Posm\MtoVisitPlanDZ.cs" />
+    <Compile Include="Posm\PosmDZ.cs" />
+    <Compile Include="Posm\RsoVisitPlanDZ.cs" />
+    <Compile Include="ProductInfo\ProductInfoDZ.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Retailer\AdhocReportDZ.cs" />
+    <Compile Include="Retailer\CriticalRetailerBalanceDZ.cs" />
+    <Compile Include="Retailer\CriticalRetailerPopupDZ.cs" />
+    <Compile Include="Retailer\RetailerDZ.cs" />
+    <Compile Include="Retailer\RetailerTargetDZ.cs" />
+    <Compile Include="RSO\RSOAttendanceDZ.cs" />
+    <Compile Include="RSO\RsoDZ.cs" />
+    <Compile Include="RSO\RSOPointDZ.cs" />
+    <Compile Include="RSO\RSORouteDZ.cs" />
+    <Compile Include="RSO\RsoSalaryDZ.cs" />
+    <Compile Include="RSO\RSOSUpdateStockDZ.cs" />
+    <Compile Include="RSO\RSOVisitPlanDZ.cs" />
+    <Compile Include="SAF\SAFInfoDZ.cs" />
+    <Compile Include="Sales\SalesMemoDZ.cs" />
+    <Compile Include="SP Class\GET_CRITICAL_RETAILERS_POPUP.cs" />
+    <Compile Include="SP Class\GET_PRODUCTS.cs" />
+    <Compile Include="SP Class\GET_PRODUCT_TYPE.cs" />
+    <Compile Include="SP Class\GET_VFOCUS_FILE_UPLOADDATA.cs" />
+    <Compile Include="SP Class\GET_ID.cs" />
+    <Compile Include="SP Class\ENDCALL_INFOcls.cs" />
+    <Compile Include="SP Class\EVENT_INFOcls.cs" />
+    <Compile Include="SP Class\GET_BALANCE_STATUS.cs" />
+    <Compile Include="SP Class\GET_COMMISSION_STRACTURE_IMAGE.cs" />
+    <Compile Include="SP Class\Get_issue_request.cs" />
+    <Compile Include="SP Class\Get_RetailerList_Fr_MTO.cs" />
+    <Compile Include="SP Class\Get_RouteList_Fr_MTO.cs" />
+    <Compile Include="SP Class\GET_SP_PRODUCTLIST.cs" />
+    <Compile Include="SP Class\GET_USER_WORK_AREA.cs" />
+    <Compile Include="SP Class\GET_EVENT_INFO.cs" />
+    <Compile Include="SP Class\GET_COMPLAIN_PICTURE.cs" />
+    <Compile Include="SP Class\GET_MARKET_UPDATE_PICTURE.cs" />
+    <Compile Include="SP Class\GET_SAF_COLL.cs" />
+    <Compile Include="SP Class\GET_COLLECTED_SAF.cs" />
+    <Compile Include="SP Class\GET_COMMISSION_HISTORY.cs" />
+    <Compile Include="SP Class\GET_FOC_PRODUCTS.cs" />
+    <Compile Include="SP Class\GET_INVOICE.cs" />
+    <Compile Include="SP Class\GET_IS_VALID_TARGET_FOR.cs" />
+    <Compile Include="SP Class\GET_DROPDOWN.cs" />
+    <Compile Include="SP Class\GET_SAVE_RESULT.cs" />
+    <Compile Include="SP Class\GET_NEW_ID.cs" />
+    <Compile Include="SP Class\GET_NEW_OUTLET_STATUS.cs" />
+    <Compile Include="SP Class\GET_COMMISSION_PICTURES.cs" />
+    <Compile Include="SP Class\GET_SHOP_CLOSING_STATUS.cs" />
+    <Compile Include="SP Class\GET_REGION.cs" />
+    <Compile Include="SP Class\GET_RETAILER_INFO_UPDATE.cs" />
+    <Compile Include="SP Class\GET_RETAILER_OFFER.cs" />
+    <Compile Include="SP Class\GET_OFFER_PICTURES.cs" />
+    <Compile Include="SP Class\GET_RETAILER_OFFER_IMAGE.cs" />
+    <Compile Include="SP Class\GET_RETAILER_SIMSTOCK.cs" />
+    <Compile Include="SP Class\GET_ROUTE_LIST.cs" />
+    <Compile Include="SP Class\GET_SAF_COLLECTION.cs" />
+    <Compile Include="SP Class\GET_STOCK_AND_SALES.cs" />
+    <Compile Include="SP Class\GET_TARGET_ITEM_APPLY_TO.cs" />
+    <Compile Include="SP Class\GET_TERITORY.cs" />
+    <Compile Include="SP Class\GET_USER_TOKEN.cs" />
+    <Compile Include="SP Class\GET_USSD_CALL.cs" />
+    <Compile Include="SP Class\GET_ALL_ZONE.cs" />
+    <Compile Include="SP Class\GET_ZONE.cs" />
+    <Compile Include="SP Class\INS_UPD_DISTRIBUTOR_INFO.cs" />
+    <Compile Include="SP Class\INS_UPD_FEEDBACK_ANSWERS.cs" />
+    <Compile Include="SP Class\GET_TARGET_ITEM.cs" />
+    <Compile Include="SP Class\INS_UPD_VISIT.cs" />
+    <Compile Include="SP Class\INS_UPD_PRODUCT_SALEPRICEcls.cs" />
+    <Compile Include="SP Class\INS_UPD_SAF_COLLECTION.cs" />
+    <Compile Include="SP Class\ISVALID_PRDCT_QTY.cs" />
+    <Compile Include="SP Class\ISVALID_SALARY_FOR.cs" />
+    <Compile Include="SP Class\RETAILER_CHANNELFILLcls.cs" />
+    <Compile Include="SP Class\RETAILER_CURRENT_BALANCE.cs" />
+    <Compile Include="SP Class\RETAILER_LAST_LIFTINGcls.cs" />
+    <Compile Include="SP Class\RETAILER_TOP_BOTTOMcls.cs" />
+    <Compile Include="SP Class\RSO_GPS_ATTENDANCEcls.cs" />
+    <Compile Include="SP Class\SAF_INFO_PENDING.cs" />
+    <Compile Include="SP Class\SP_APP_PASSWORD_CHANGE.cs" />
+    <Compile Include="SP Class\SP_CHECK_USER_DEVICE.cs" />
+    <Compile Include="SP Class\SP_CHECK_USER_DEVICE_OTP.cs" />
+    <Compile Include="SP Class\SP_FF_GET_ NOTICE_LIST.cs" />
+    <Compile Include="SP Class\SP_FF_GET_MENU_GROUP.cs" />
+    <Compile Include="SP Class\SP_FF_GET_MENU_GROUP_ITEM_LIST.cs" />
+    <Compile Include="SP Class\SP_FF_GET_NOTIFICATION_TYPE.cs" />
+    <Compile Include="SP Class\SP_FF_GET_RETAILER_DEMANDcls.cs" />
+    <Compile Include="SP Class\SP_FF_GET_RETAILER_TARGET.cs" />
+    <Compile Include="SP Class\SP_FF_GET_RSO_STOCK.cs" />
+    <Compile Include="SP Class\SP_FF_GET_SURVEY.cs" />
+    <Compile Include="SP Class\SP_FF_GET_TARGET_ITEM.cs" />
+    <Compile Include="SP Class\SP_FF_GET_TARGET_PERIOD.cs" />
+    <Compile Include="SP Class\SP_FF_GET_Top5POSMP_PRODUCT.cs" />
+    <Compile Include="SP Class\SP_FF_GET_TRAINING_SECTION.cs" />
+    <Compile Include="SP Class\SP_FF_RETAILER_ACHIEVEMENT.cs" />
+    <Compile Include="SP Class\SP_FF_SAVE_VFOCUS_GRAPH_INFO.cs" />
+    <Compile Include="SP Class\SP_FF_TRAINING_SECTION_LIST.cs" />
+    <Compile Include="SP Class\SP_GET_ACHIEVE_POINT.cs" />
+    <Compile Include="SP Class\SP_GET_ADHOC_REPORT.cs" />
+    <Compile Include="SP Class\SP_GET_ALL_EV_LIMIT.cs" />
+    <Compile Include="SP Class\SP_GET_ALL_SURVEY_LIST_QUE_ANScls.cs" />
+    <Compile Include="SP Class\SP_GET_ALL_CURRENT_OFFER.cs" />
+    <Compile Include="SP Class\SP_GET_ALL_DISTRIBUTOR.cs" />
+    <Compile Include="SP Class\SP_GET_ATTENDANCE_SUMMARY1.cs" />
+    <Compile Include="SP Class\SP_GET_ATTENDANCE_SUMMARY2.cs" />
+    <Compile Include="SP Class\SP_GET_CRTL_RETAILER_BALANCE.cs" />
+    <Compile Include="SP Class\SP_GET_DD_RETAILER_INFO.cs" />
+    <Compile Include="SP Class\SP_GET_DENO_REPORT_LIST.cs" />
+    <Compile Include="SP Class\SP_CHECK_DEVICE.cs" />
+    <Compile Include="SP Class\SP_GET_FF_RSO_EARNING.cs" />
+    <Compile Include="SP Class\SP_GET_FF_RSO_EARNING_COMMISSION.cs" />
+    <Compile Include="SP Class\SP_GET_FF_RSO_EARNING_INCENTIVE_FILE.cs" />
+    <Compile Include="SP Class\SP_GET_FF_RSO_EARNING_SALAY.cs" />
+    <Compile Include="SP Class\SP_GET_FF_RSO_EARNING_SALAY_FILE.cs" />
+    <Compile Include="SP Class\SP_GET_FOC_PRODUCT_INFO.cs" />
+    <Compile Include="SP Class\SP_GET_FOOTSTEP_EXPORT1.cs" />
+    <Compile Include="SP Class\SP_GET_GROUPITEM_MAP_WEB.cs" />
+    <Compile Include="SP Class\SP_GET_HIGHLIGHTS_CRITICAL_RET.cs" />
+    <Compile Include="SP Class\SP_GET_MARKET_UPDATE_TYPE.cs" />
+    <Compile Include="SP Class\SP_GET_DELIVERED_MEMO_SERIAL.cs" />
+    <Compile Include="SP Class\SP_GET_MENUGROUP_WEB.cs" />
+    <Compile Include="SP Class\SP_GET_MENUITEM_WEB.cs" />
+    <Compile Include="SP Class\SP_GET_MSISDN_LIST.cs" />
+    <Compile Include="SP Class\SP_GET_MTO_MTD_VISIT_DATA.cs" />
+    <Compile Include="SP Class\SP_GET_MTO_VISIT_DATA.cs" />
+    <Compile Include="SP Class\SP_GET_MTO_VISIT_MTD_DETAILS_DATA.cs" />
+    <Compile Include="SP Class\SP_GET_NOTIFICATION.cs" />
+    <Compile Include="SP Class\SP_GET_PRODUCTCATEGORY.cs" />
+    <Compile Include="SP Class\SP_GET_FOOTSTEP_EXPORT2.cs" />
+    <Compile Include="SP Class\SP_GET_RETURN_MEMO.cs" />
+    <Compile Include="SP Class\SP_GET_RET_TOPUP_STATUS.cs" />
+    <Compile Include="SP Class\SP_GET_RSOPOINT_WEB.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_COMMISSION_DETAILS.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_COMMISSION_SUMMSRY.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_MTD_VISIT_DATA.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_STOCK.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_VISIT_MTD_DETAILS_DATA.cs" />
+    <Compile Include="SP Class\SP_GET_SALES_MEMO.cs" />
+    <Compile Include="SP Class\SP_GET_SIM_STATUS.cs" />
+    <Compile Include="SP Class\SP_GET_PRODUCT_FROM_SL.cs" />
+    <Compile Include="SP Class\SP_GET_SCROLL_MESSAGE.cs" />
+    <Compile Include="SP Class\SP_GET_NEW_RETAILER_INFO.cs" />
+    <Compile Include="SP Class\SP_GET_SAVE_RESULT_WITH_ERROR_CODE.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_COMMISSION.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_SAF.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_COMMISSION.cs" />
+    <Compile Include="SP Class\SP_GET_SPECIAL_REPORT.cs" />
+    <Compile Include="SP Class\SP_GET_SURVEY_LIST.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_LOCATION_UPDATE.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_SALES.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_STOCK.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_WISE_PRODUCT_QTY.cs" />
+    <Compile Include="SP Class\SP_GET_MEMO_DETAIL.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_ATTENDANCE_AND_PATH.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_DETAIL.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_SALES_CALL_DAILY_ATTENDANCE.cs" />
+    <Compile Include="SP Class\SP_GET_CRITICAL_RETAILER.cs" />
+    <Compile Include="SP Class\SP_GET_TOPUP_ISSUE.cs" />
+    <Compile Include="SP Class\SP_GET_TRAININICONTENT_WEB.cs" />
+    <Compile Include="SP Class\SP_GET_USER_AUTHENTICATION_INFO.cs" />
+    <Compile Include="SP Class\SP_GET_VISIT_DETAIL.cs" />
+    <Compile Include="SP Class\SP_GET_EVENT_INFO.cs" />
+    <Compile Include="SP Class\SP_GET_TODAY_SALES.cs" />
+    <Compile Include="SP Class\SP_GET_RPT_RSO_TARGET_ACHIVE.cs" />
+    <Compile Include="SP Class\SP_GET_MENU.cs" />
+    <Compile Include="SP Class\SP_GET_USER_ROLE.cs" />
+    <Compile Include="SP Class\SP_GET_PERMISSION.cs" />
+    <Compile Include="SP Class\SP_GET_ROLE_WISE_PERMISSION.cs" />
+    <Compile Include="SP Class\SP_GET_ROUTE_PERFORMANCE.cs" />
+    <Compile Include="SP Class\SP_GET_TOP_BOTTOM_RETAILER.cs" />
+    <Compile Include="SP Class\SP_GET_PERFORMANCE_KPI.cs" />
+    <Compile Include="SP Class\SP_GET_COMPLAIN_STATUS.cs" />
+    <Compile Include="SP Class\SP_GET_COMPLAIN_TYPE.cs" />
+    <Compile Include="SP Class\SP_GET_FEEDBACK_OPTION.cs" />
+    <Compile Include="SP Class\SP_GET_FOC_PRODUCT.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_LOC_BY_ROUTE.cs" />
+    <Compile Include="SP Class\SP_GET_TARGET_FILE.cs" />
+    <Compile Include="SP Class\SP_GET_MARKET_UPDATE.cs" />
+    <Compile Include="SP Class\SP_GET_TARGET_SETUP.cs" />
+    <Compile Include="SP Class\SP_GET_FEEDBACK_QUESTION_ANSWER.cs" />
+    <Compile Include="SP Class\SP_GET_BEST_RSO_PRACTICE.cs" />
+    <Compile Include="SP Class\SP_GET_COMMISSION_STRUCTURE.cs" />
+    <Compile Include="SP Class\SP_GET_CHANNEL_TYPE.cs" />
+    <Compile Include="SP Class\SP_GET_BEST_RETAILER_PRACTICE.cs" />
+    <Compile Include="SP Class\SP_GET_CALCULATION_AREA.cs" />
+    <Compile Include="SP Class\SP_GET_BTS_GPS.cs" />
+    <Compile Include="SP Class\SP_GET_AMBM_SHOP_VISIT.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_ROUTE.cs" />
+    <Compile Include="SP Class\SP_GET_ROUTE.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_TARGET_ACHIVEMENT.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_CURRENT_INFO.cs" />
+    <Compile Include="SP Class\SP_GET_STAFF_TARGET_DETAIL.cs" />
+    <Compile Include="SP Class\SP_GET_STAFF_TARGET.cs" />
+    <Compile Include="SP Class\SP_GET_DISTRIBUTOR_UP_TARGET.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_GPS.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_GPS.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_GPS_FOR_APPROVE.cs" />
+    <Compile Include="SP Class\SP_GET_NEW_RETAILER_FOR_APPROVE.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_INFO_UPDATE_FOR_APPROVE.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_CREATE_REQUEST.cs" />
+    <Compile Include="SP Class\SP_GET_MEMO.cs" />
+    <Compile Include="SP Class\SP_GET_PRODUCT.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_DASHBOARD_INFO.cs" />
+    <Compile Include="SP Class\SP_GET_LIFTING_DETAIL.cs" />
+    <Compile Include="SP Class\SP_GET_SALES_STOCK.cs" />
+    <Compile Include="SP Class\SP_GET_TRADE_MATERIAL_ISSUE.cs" />
+    <Compile Include="SP Class\SP_GET_VISIT_FEEDBACK_STATUS.cs" />
+    <Compile Include="SP Class\SP_GET_HIGHLIGHTS_REQ_STOCK.cs" />
+    <Compile Include="SP Class\SP_GET_HIGHLIGHTS_VISIT.cs" />
+    <Compile Include="SP Class\SP_GET_VISIT_PLAN_SUMMARY.cs" />
+    <Compile Include="SP Class\SP_GET_ROLES.cs" />
+    <Compile Include="SP Class\SP_GET_COMMISSION_GROUPcls.cs" />
+    <Compile Include="SP Class\SP_GET_COMMISSION_GRP_MEM_MAPcls.cs" />
+    <Compile Include="SP Class\SP_GET_CENTERS.cs" />
+    <Compile Include="SP Class\SP_GET_CURRENT_OFFER.cs" />
+    <Compile Include="SP Class\SP_GET_CURRENT_OFFERcls.cs" />
+    <Compile Include="SP Class\SP_GET_DISTRIBUTOR.cs" />
+    <Compile Include="SP Class\SP_GET_DISTRIBUTORcls.cs" />
+    <Compile Include="SP Class\SP_GET_DISTRIBUTOR_BUDGETcls.cs" />
+    <Compile Include="SP Class\SP_GET_DISTRIBUTOR_BY_REG_IDcls.cs" />
+    <Compile Include="SP Class\SP_GET_ALL_FEEDBACK_QUESTION.cs" />
+    <Compile Include="SP Class\SP_GET_FEEDBACK_QUESTIONNAIRE.cs" />
+    <Compile Include="SP Class\SP_GET_FEEDBACK_QUESTION.cs" />
+    <Compile Include="SP Class\SP_GET_GROSS_BUDGETcls.cs" />
+    <Compile Include="SP Class\SP_GET_INS_UPD_SAF_INFOcls.cs" />
+    <Compile Include="SP Class\SP_GET_COMPLAINS.cs" />
+    <Compile Include="SP Class\SP_GET_SHOP_TARGET_ACHIVE.cs" />
+    <Compile Include="SP Class\SP_GET_SHOP_STOCK.cs" />
+    <Compile Include="SP Class\SP_GET_NATIONAL_TARGET_SETUPcls.cs" />
+    <Compile Include="SP Class\SP_GET_NATIONAL_TARGET_SETUP_PARENT_AND_DETAILcls.cs" />
+    <Compile Include="SP Class\SP_GET_NAT_TAR_DISTRIBUTIONcls.cs" />
+    <Compile Include="SP Class\SP_GET_NAT_TAR_DISTRIBUTION_WCcls.cs" />
+    <Compile Include="SP Class\SP_GET_PRODUCT_BY_SUBCATEIDcls.cs" />
+    <Compile Include="SP Class\SP_GET_PRODUCT_FAMILYcls.cs" />
+    <Compile Include="SP Class\SP_GET_PRO_CATEGORYcls.cs" />
+    <Compile Include="SP Class\SP_GET_REGIONcls.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILERcls.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_BUDGETcls.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_GPS_LOCcls.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_TAR_ACHIEVEcls.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_TAR_ACHI_T_Bcls.cs" />
+    <Compile Include="SP Class\SP_GET_RETAIL_RSO_WISECls.cs" />
+    <Compile Include="SP Class\SP_GET_RET_GPS_RSO_DATE_WISEcls.cs" />
+    <Compile Include="SP Class\SP_GET_ROT_WISE_RET_SCHDLcls.cs" />
+    <Compile Include="SP Class\SP_GET_ROUTEcls.cs" />
+    <Compile Include="SP Class\SP_GET_RSOcls.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_ROT_SCHDLcls.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_TAR_ACHIcls.cs" />
+    <Compile Include="SP Class\SP_GET_RSO_WISE_ROT_A_RETcls.cs" />
+    <Compile Include="SP Class\SP_GET_SCISSUENEWRETAILERcls.cs" />
+    <Compile Include="SP Class\SP_GET_SERVER_INFOcls.cs" />
+    <Compile Include="SP Class\SP_GET_SUBCATEGORYcls.cs" />
+    <Compile Include="SP Class\SP_GET_SURVEYANALYSYS_ANScls.cs" />
+    <Compile Include="SP Class\SP_GET_SURVEYANSWER_LISTcls.cs" />
+    <Compile Include="SP Class\SP_GET_DISTRIBUTOR_TARGET.cs" />
+    <Compile Include="SP Class\SP_GET_SURVEYLISTcls.cs" />
+    <Compile Include="SP Class\SP_GET_SURVEYQUESTION_LISTcls.cs" />
+    <Compile Include="SP Class\SP_GET_TARGET_EXCELFILEcls.cs" />
+    <Compile Include="SP Class\SP_GET_TARGET_ITEM.cs" />
+    <Compile Include="SP Class\SP_GET_DISTRIBUTOR_TARGET_FILE.cs" />
+    <Compile Include="SP Class\SP_GET_CENTER_TYPE.cs" />
+    <Compile Include="SP Class\SP_GET_ENTITY_TYPE.cs" />
+    <Compile Include="SP Class\SP_GET_MONTH.cs" />
+    <Compile Include="SP Class\SP_GET_VISIT_TYPE.cs" />
+    <Compile Include="SP Class\SP_GET_TARGET_PERIOD.cs" />
+    <Compile Include="SP Class\SP_GET_TARGET_SETUPcls.cs" />
+    <Compile Include="SP Class\SP_GET_TERGAT_FOR_DIST.cs" />
+    <Compile Include="SP Class\SP_GET_TICKER_MESSAGEcls.cs" />
+    <Compile Include="SP Class\SP_GET_UPLOADED_TARGET.cs" />
+    <Compile Include="SP Class\SP_GET_USERINFOcls.cs" />
+    <Compile Include="SP Class\SP_GET_USER_AUTHENTICATION.cs" />
+    <Compile Include="SP Class\SP_GET_USER_ROLE_RIGHTcls.cs" />
+    <Compile Include="SP Class\SP_GET_VAILD_RETAILERcls.cs" />
+    <Compile Include="SP Class\SP_GET_MESSAGE.cs" />
+    <Compile Include="SP Class\SP_GET_RETAILER_VISIT_PLAN.cs" />
+    <Compile Include="SP Class\SP_GET_SHOP_VISIT_PLAN.cs" />
+    <Compile Include="SP Class\SP_INS_RETAILER_GPSINFOcls.cs" />
+    <Compile Include="SP Class\SP_INS_RETURNEDSIMcls.cs" />
+    <Compile Include="SP Class\SP_INS_UPD_COMMISSION_INFOcls.cs" />
+    <Compile Include="SP Class\SP_INS_UPD_MARKET_UPDATEcls.cs" />
+    <Compile Include="SP Class\SP_INS_UPD_RSO_APPS_INBOXcls.cs" />
+    <Compile Include="SP Class\SP_INS_UPD_SCISSUENEWRETAILERcls.cs" />
+    <Compile Include="SP Class\SP_INS_UPD_SURVEY_ANALYSIS_ANScls.cs" />
+    <Compile Include="SP Class\SP_INS_UPD_SURVEY_DETAIL_Q_ANScls.cs" />
+    <Compile Include="SP Class\SP_INS_UPD_SURVEY_LISTcls.cs" />
+    <Compile Include="SP Class\SP_IU_TARGET_EXCELFILEcls.cs" />
+    <Compile Include="SP Class\SP_RSO_BY_CODE_PASScls.cs" />
+    <Compile Include="SP Class\SP_GET_CRTBALANCE_TEMP.cs" />
+    <Compile Include="SP Class\SP_SC_TRAN_OPERATIONcls.cs" />
+    <Compile Include="SP Class\SP_SIM_TRAN_OPERATIONcls.cs" />
+    <Compile Include="SPtoObject\ObjectMakerFromOracleSP.cs" />
+    <Compile Include="Survey\SurveyDZ.cs" />
+    <Compile Include="Target\AchievementPointDZ.cs" />
+    <Compile Include="Target\CommissionGroupDZ.cs" />
+    <Compile Include="Target\CommissionGroupMemberMapDZ.cs" />
+    <Compile Include="Target\CommissionInfoDZ.cs" />
+    <Compile Include="Target\DistributorBudgetDZ.cs" />
+    <Compile Include="Target\GrossBudgetDZ.cs" />
+    <Compile Include="Target\NationalTargetDistributionDZ.cs" />
+    <Compile Include="Target\NationalTargetSetupDZ.cs" />
+    <Compile Include="Target\RerailerBudgetDZ.cs" />
+    <Compile Include="Target\TargetExcelDZ.cs" />
+    <Compile Include="Target\TargetItemDZ.cs" />
+    <Compile Include="Target\TargetSetupDZ.cs" />
+    <Compile Include="Training\TrainingContentDZ.cs" />
+    <Compile Include="Transaction\EndCallInfoDZ.cs" />
+    <Compile Include="Transaction\GenerateTokenDZ.cs" />
+    <Compile Include="Transaction\GetNewIdDZ.cs" />
+    <Compile Include="Transaction\ProductTranscationDZ.cs" />
+    <Compile Include="Vfocus\ApplicationLogDZ.cs" />
+    <Compile Include="Vfocus\FILE_UPLOAD_DATA_DZ.cs" />
+    <Compile Include="Vfocus\GraphInfoDZ.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MarketArea\" />
+    <Folder Include="SP Class\NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Oracle.ManagedDataAccess.dll" />
+    <Content Include="Oracle.ManagedDataAccess.EntityFramework.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.0.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

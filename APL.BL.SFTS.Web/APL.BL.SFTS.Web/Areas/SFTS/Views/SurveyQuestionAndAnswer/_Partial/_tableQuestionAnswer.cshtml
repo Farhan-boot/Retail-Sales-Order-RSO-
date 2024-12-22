@@ -1,0 +1,46 @@
+﻿
+<div id="customScrolledTableInspac" style="overflow: auto; max-width: 1230px;">
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+
+    <div class="table table-responsive">
+        <table class="table table-bordered table-hover" style="margin-bottom: 0px; overflow: auto;">
+            <thead class="grid-top-panel">
+                <tr class="gr-header">
+                    <th hidden></th>
+                    @*<th style="text-align: center" class="col-xs-1">SL #</th>*@
+                    <th class="col-xs-5">Question</th>
+                    <th class="col-xs-6">Answer</th>
+                    <th class="col-xs-.25"></th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="rowdiv" style="max-height: 200px; overflow: auto;">
+            <table style="width: 100%;">
+                <tr ng-repeat="dataModel in ListQuestionAnswer|filter:ListQuestionAnswerSearch" ng-class="{'rowselected':$index == selectedRow}" ng-click="setClickedRow($index)">
+                    <td hidden>{{dataModel.SURVEY_DETAIL_AID}}</td>
+                    @*<td style="text-align: center">1</td>*@
+                    <td class="col-xs-5"><span>{{dataModel.QUESTION}}</span></td>
+                    <td class="col-xs-6"><span>{{dataModel.ANSWER}}</span></td>
+                    <td class="inputOptionClass col-xs-.25" style="text-align:center; min-width:50px; color:white">
+                        <span class="label label-danger label-mini">
+                            <a href="javascript:void(0);" data-toggle="modal" class="bs-tooltip" title="Delete">
+                                <i class="icon-trash" ng-click="DeleteAnswer($index)"></i>
+                            </a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+

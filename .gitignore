@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/APL.BL.SFTS.Web/APL.BL.SFTS.Web/UserFiles/Notification/~$SpecialReport637642972089962445.xlsx
+/APL.BL.SFTS.Web/APL.BL.SFTS.Web/UserFiles/Notification/SpecialReport637642972089962445.xlsx
+/.vs
+/APL.BL.SFTS.DataBridgeZone/obj
+/APL.BL.SFTS.Models/bin
+/APL.BL.SFTS.Models/obj
+/APL.BL.SFTS.DataBridgeZone/bin
+/APL.BL.SFTS.ProcessZone/obj
+/APL.BL.SFTS.ProcessZone/bin
+/APL.BL.SFTS.ShelterZone/bin
+/APL.BL.SFTS.ShelterZone/obj
+/APL.BL.SFTS.Web/.vs
+/APL.BL.SFTS.Web/APL.BL.SFTS.Web/obj
+/APL.BL.SFTS.Web/APL.BL.SFTS.Web/bin

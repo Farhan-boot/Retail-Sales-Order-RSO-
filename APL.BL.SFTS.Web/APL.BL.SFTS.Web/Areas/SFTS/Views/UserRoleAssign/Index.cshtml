@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "User Role Assign";
+}
+
+<div ng-controller="tokenCtrl">
+    <div ng-controller="UserRoleAssignCtlr">
+        <!-- Breadcrumbs line -->
+        <div>
+            @Html.Partial("~/Areas/SystemCommon/Views/Shared/_Partial/_TestBreadcrumbs.cshtml")
+        </div>
+        <!-- /Breadcrumbs line -->
+        <!--=== Page Header ===-->
+
+        <div style="height: 10px"></div>
+        <!-- /Page Header -->
+        <!--=== Page Content ===-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> {{PageTitle}}</h4>
+                        <div class="toolbar no-padding">
+                            @*<div class="btn-group">
+                                    <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+                                </div>*@
+
+                            <span id="reset" class="btn btn-danger margin-right-btn" ng-click="clear()">
+                                <i class="icon-refresh"></i> Reset
+                            </span>
+
+                            <span id="save" class="btn btn-success margin-right-btn" ng-click="save()" ng-disabled="frmUserRoleAssign.$invalid">
+                                <i class="icon-save"></i> {{btnSaveText}}
+                            </span>
+
+
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+
+                        </div>
+                    </div>
+                    <div class="widget-content">
+                        @Html.Partial("~/Areas/SFTS/Views/UserRoleAssign/_Partial/_formUserRoleAssign.cshtml")
+                    </div>
+
+                    <div class="row" style="margin-bottom: -10px;">
+                        <div class="col-md-12">
+                            <div class="widget box">
+                                <div class="widget-header">
+                                    <h4><i class="icon-reorder"></i> User Roles Detail</h4>
+                                    <div class="toolbar no-padding">
+                                        <div class="btn-group">
+                                            <input type="button" id="ViewRoles" class="btn btn-success margin-right-btn" value="View Roles" ng-click="loadUserRoles()" ng-disabled="frmUserRoleAssign.$invalid" />
+                                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-content no-padding">
+                                    @Html.Partial("~/Areas/SFTS/Views/UserRoleAssign/_Partial/_tableUserRoleAssignDetails.cshtml")
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.col-md-12 -->
+                </div>
+            </div> <!-- /.col-md-12 -->
+        </div>
+
+    </div>
+</div>
+
+
+<!-- /.container -->
+@section AngularScript{
+    <script src="~/Areas/SFTS/ScriptsNg/Controllers/UserRoleAssignCtlr.js"></script>
+    <script src="~/Areas/SFTS/ScriptsNg/Service/CrudService.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+    <script src="~/Areas/Token/TokenController.js"></script>
+}
+
+
+
+
+
+
+

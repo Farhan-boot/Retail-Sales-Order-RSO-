@@ -1,0 +1,40 @@
+﻿
+<div style="height: 20px;"></div>
+<label style="color:red; font-weight: bold">Total Record(s):</label>
+<table class="table table-striped table-fixed">
+    <thead style="background-color: #ecf0f5">
+        <tr>
+            <th>TARGET DATE</th>
+            <th>REGION</th>
+            <th>DD CODE</th>
+            <th>DD NAME</th>
+            <th>RP SIM</th>
+            <th>RP EV</th>
+            <th>GA</th>
+            <th>DS EV</th>
+            <th>DS SC</th>
+            <th>TOTAL DS</th>
+            <th>RECH SC</th>
+            <th>RECH EV</th>
+            <th>TOTAL RECH</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="excelData in uploadedExcelData">
+            <td>{{excelData.TARGET_DATE}}</td>
+            <td>{{excelData.REGION}}</td>
+            <td>{{excelData.DD_CODE}}</td>
+            <td>{{excelData.DD_NAME}}</td>
+            <td>{{excelData.RP_SIM}}</td>
+            <td>{{excelData.RP_EV}}</td>
+            <td>{{excelData.GA}}</td>
+            <td>{{excelData.DS_EV}}</td>
+            <td>{{excelData.DS_SC}}</td>
+            <td>{{excelData.TOTAL_DS}}</td>
+            <td>{{excelData.RECH_SC}}</td>
+            <td>{{excelData.RECH_EV}}</td>
+            <td>{{excelData.TOTAL_RECH}}</td>
+        </tr>
+    </tbody>
+</table>
+

@@ -1,0 +1,105 @@
+﻿
+
+<form novalidate name="frmAppMenus" id="frmAppMenus" class="form-horizontal row-border">
+    <input type="hidden" id="hAppMenuId" readonly="readonly" ng-model="hAppMenuId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Menu For :</label>
+                <div class="col-md-6">
+                    <input type="radio"
+                           ng-model="MENU_FOR"
+                           ng-change="menuForChanged()"
+                           name="menufor" value="1" required />  RSO
+                    <input type="radio"
+                           ng-model="MENU_FOR"
+                           ng-change="menuForChanged()"
+                           name="menufor" value="2" required /> Merchandiser
+                </div>
+                <span class="error"></span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Parent :</label>
+                <div class="col-md-6">
+                    <select id="ddlParent" class="select2-select-00"
+                            ng-model="PARENT_ID"
+                            name="ddlParent"
+                            data-placeholder="--Select Parent--"
+                            style="width: 100%" ng-options="ct.ITEM_ID as ct.MENU_NAME for ct in menuGroupList">
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error"></span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Menu Name :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtMenuName"
+                           class="form-control"
+                           ng-model="MENU_NAME"
+                           name="txtMenuName" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Menu Name (Bangla) :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtMenuNameB"
+                           class="form-control"
+                           ng-model="MENU_NAME_BAN"
+                           name="txtMenuNameB" />
+                </div>
+                <span class="error"></span>
+            </div>
+            <div class="form-group  m-b-10 clearfix" style="display:none">
+                <label class="col-md-4 control-label" for="input17">Position :</label>
+                <div class="col-md-6">
+                    <input type="radio"
+                           ng-model="IS_HEADER"
+                           name="isheader" value="1" required />  Header
+                    <input type="radio"
+                           ng-model="IS_HEADER"
+                           name="isheader" value="2" required /> Group
+                    <input type="radio"
+                           ng-model="IS_HEADER"
+                           name="isheader" value="3" required /> Footer
+
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix" style="display:none">
+                <label class="col-md-4 control-label" for="input17">Menu Url :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtMenuUrl"
+                           class="form-control"
+                           ng-model="MENU_URL"
+                           name="txtGroupUrl" />
+                </div>
+                <span class="error"></span>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Is Active :</label>
+                <div class="col-md-6">
+                    <input type="radio"
+                           ng-model="IS_ACTIVE"
+                           name="isactive" value="1" required />  Yes
+                    <input type="radio"
+                           ng-model="IS_ACTIVE"
+                           name="isactive" value="0" required /> No
+                </div>
+                <span class="error"></span>
+            </div>
+
+
+        </div>
+
+    </div>
+</form>
+
+
+

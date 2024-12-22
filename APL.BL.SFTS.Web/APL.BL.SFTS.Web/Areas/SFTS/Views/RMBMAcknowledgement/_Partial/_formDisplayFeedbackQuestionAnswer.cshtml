@@ -1,0 +1,23 @@
+﻿<section class="cd-faq">
+    <div class="cd-faq-items">
+        <ul id="basics" class="cd-faq-group">  
+            <li ng-repeat="fqa in FeedbackQAList" class="content-visible">
+                <a class="cd-faq-trigger">{{fqa.QUESTION_TEXT}}</a>
+                <div class="cd-faq-content-ratings" style="overflow: hidden; display: block;">
+                    <div>Ratings : {{fqa.RATING}} out of 5</div>
+                </div> <!-- cd-faq-content -->
+
+                <div class="cd-faq-content" style="overflow: hidden; display: block;">
+                <div>Observation :</div>
+                    <p>{{fqa.OBSERVATION}}</p>
+                </div> <!-- cd-faq-content -->
+
+                <div class="cd-faq-content" style="overflow: hidden; display: block;">
+                <div>Action Point :</div>
+                    <p>{{fqa.ACTIONPOINT}}</p>
+                </div> <!-- cd-faq-content -->
+            </li>
+       
+        </ul> <!-- cd-faq-group -->
+    </div> <!-- cd-faq-items -->
+</section> <!-- cd-faq -->

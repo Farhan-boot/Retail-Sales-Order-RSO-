@@ -1,0 +1,136 @@
+﻿
+<form novalidate name="frmDistributorTarget" id="frmDistributorTarget" class="form-horizontal row-border">
+    <input id="hUploadCode" hidden="hidden" ng-model="hUploadCode" />
+    <input id="hTargetId" hidden="hidden" ng-model="hTargetId" />
+    <input id="hVersion" hidden="hidden" ng-model="hVersion" />
+    <input type="hidden" id="hUserID" name="userID" value="@Session["CurUserID"].ToString()" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">File Category</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetItem" class="select2-select-00"
+                            ng-model="fileCategory"
+                            ng-disabled="IsTargetItemDisabled"
+                            name="ddlTargetItem"
+                            data-placeholder="--Select Target Item--"
+                            style="width: 100%" ng-options="dist.ID as dist.CATEGORY_NAME for dist in listFileCategory" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">File Format</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetPeriod" class="select2-select-00"
+                            ng-model="fileFormat"
+                            name="ddlTargetPeriod"
+                            ng-disabled="IsTargetPeriodDisabled"
+                            data-placeholder="--Select Target Period--"
+                            style="width: 100%" ng-options="rout.ID as rout.FORMAT_NAME for rout in listFileFormat" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            @*@using (Html.BeginForm("ExcelForTargetUpload", "DistributorTarget", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group  m-b-10 clearfix">
+                        <label class="col-md-4 control-label">Source File</label>
+                        <div class="col-md-6">
+                            <input type="file" id="FileUpload1" name="FileUpload1" onchange="this.form.submit(); fu();" />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+                }*@
+
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">File Name:</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtGraphName"
+                           class="form-control"
+                           name="txtGraphName" ng-model="FileName" placeholder="Graph Name" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">short description:</label>
+                <div class="col-md-6">
+                    <textarea rows="2"
+                              id="txtDetail"
+                              class="form-control"
+                              name="txtDetail" ng-model="FileDetail" placeholder="Detail">
+                    </textarea>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">File Link:</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtGraphName"
+                           class="form-control"
+                           name="txtGraphName" ng-model="FileLink" placeholder="Graph Name" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <!--UsingJS-->
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label">Source File</label>
+                <div class="col-md-6">
+                    <input type="file" id="files" name="files[]" multiple required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-6">
+                    <div class="w3-light-grey" ng-show="IsInProgress">
+                        <div class="w3-green" style="height: 15px; width: {{ProgressStatus}}%">{{ProgressStatus}} %  {{waitText}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 10px;"></div>
+            <p style="color:red; font-weight: bold;" ng-show="IsNotFoundShow">{{NotFoundMsg}}</p>
+        </div>
+
+        <div class="col-md-6">
+           
+
+           
+
+            
+
+            <div class="form-group  m-b-10 clearfix" ng-show="IsStaffTypeShow">
+                <label class="col-md-4 control-label" for="input17">Staff Type</label>
+                <div class="col-md-6">
+                    <select id="ddlStaffType" class="select2-select-00"
+                            ng-model="StaffType"
+                            ng-disabled="IsStaffTypeDisabled"
+                            name="ddlStaffType"
+                            data-placeholder="--Select Staff Type--"
+                            style="width: 100%" ng-options="S.ROLE_ID as S.ROLE_NAME for S in listRole">
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+

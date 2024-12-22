@@ -1,0 +1,117 @@
+﻿
+<form novalidate name="frmSearch" id="frmSearch" class="form-horizontal row-border">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Target Item</label>
+                <div class="col-md-7">
+                    <select id="ddlTargetItem" class="select2-select-00"
+                            ng-model="TargetItem"
+                            ng-disabled="IsTargetItemDisabled"
+                            name="ddlTargetItem"
+                            data-placeholder="--Select Target Item--"
+                            style="width: 100%" ng-options="dist.TARGET_ITEM_ID as dist.TARGET_ITEM_NAME for dist in listTargetItem" required>
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Target Period</label>
+                <div class="col-md-7">
+                    <select id="ddlTargetPeriod" class="select2-select-00"
+                            ng-model="TargetPeriod"
+                            name="ddlTargetPeriod"
+                            ng-disabled="IsTargetPeriodDisabled"
+                            data-placeholder="--Select Target Period--"
+                            style="width: 100%" ng-options="rout.TARGET_PERIOD_ID as rout.TARGET_PERIOD_NAME for rout in listTargetPeriod" required>
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Target For</label>
+                <div class="col-md-7">
+                    <select id="ddlTargetFor" class="select2-select-00"
+                            ng-model="TargetFor"
+                            ng-change="TargetForChange()"
+                            ng-disabled="IsTargetForDisabled"
+                            name="ddlTargetFor"
+                            data-placeholder="--Select Target For--"
+                            style="width: 100%" required>
+                        <option></option>
+                        <option value="1">Distributor</option>
+                        <option value="2">Staff</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @*<div class="form-group">
+                <label class="col-md-4 control-label">Route</label>
+                <div class="col-md-7">
+                    <select id="ddlRoute" class="select2-select-00"
+                            ng-model="Route"
+                            name="ddlRoute"
+                            ng-disabled="IsRouteDisabled"
+                            data-placeholder="--Select Route--"
+                            style="width: 100%" ng-options="rt.ID as rt.NAME for rt in routeList">
+                        <option></option>
+                    </select>
+                </div>
+            </div>*@
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Staff Type</label>
+                <div class="col-md-7">
+                    <select id="ddlStaffType" class="select2-select-00"
+                            ng-model="StaffType"
+                            ng-disabled="IsStaffTypeDisabled"
+                            name="ddlStaffType"
+                            data-placeholder="--Select Staff Type--"
+                            style="width: 100%" ng-options="S.ROLE_ID as S.ROLE_NAME for S in listRole">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Initial Version</label>
+                <div class="col-md-7">
+                   <input type="checkbox" ng-model="IsInitalVersion" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-7">
+                    <span id="Show" class="btn btn-info margin-right-btn" ng-click="GetUploadedTarget()" ng-disabled="frmSearch.$invalid">
+                        <i class="icon-search"></i> View Report
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
+

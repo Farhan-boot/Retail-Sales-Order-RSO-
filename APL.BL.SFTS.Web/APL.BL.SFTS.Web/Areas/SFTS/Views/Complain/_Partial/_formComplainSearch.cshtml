@@ -1,0 +1,125 @@
+﻿
+<form novalidate name="frmComplainSearch" id="frmComplainSearch" class="form-horizontal row-border">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div style="height: 5px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Complain For</label>
+                <div class="col-md-7">
+                    <select id="ddlComplainFor" class="select2-select-00"
+                            ng-model="ComplainFor"
+                            ng-change="ComplainForOnchange()"
+                            name="ddlComplainFor"
+                            data-placeholder="--Select Complain For--"
+                            style="width: 100%" required>
+                        <option></option>
+                        <option value="1">RETAILERS</option>
+                        @*<option value="2">DISTRIBUTORS</option>*@
+                        <option value="3">RSO</option>
+                        @*<option value="4">CENTER/SHOP</option>*@
+                    </select>
+                </div>
+            </div>
+
+            <div style="height: 5px;"></div>
+        </div>
+
+        <div class="col-md-4">
+            <div style="height: 5px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Complain Type</label>
+                <div class="col-md-7">
+                    <select id="ddlComplainType" class="select2-select-00"
+                            ng-model="ComplainType"
+                            ng-change="loadComplainStatus(0)"
+                            name="ddlComplainType"
+                            data-placeholder="--Select Complain Type--"
+                            style="width: 100%" ng-options="ct.ID as ct.NAME for ct in listComplainType">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="height: 5px;"></div>
+        </div>
+
+        <div class="col-md-4">
+            <div style="height: 5px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Status</label>
+                <div class="col-md-7">
+                    <select id="ddlStatus" class="select2-select-00"
+                            ng-model="Status"
+                            name="ddlStatus"
+                            data-placeholder="--Select Status--"
+                            style="width: 100%" ng-options="cs.ID as cs.NAME for cs in listComplainStatus">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="height: 5px;"></div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div style="height: 5px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Date From</label>
+                <div class="col-md-7">
+                    <input type="text"
+                           id="txtDateFrom"
+                           class="form-control datepicker"
+                           name="txtDateFrom" ng-model="DateFrom" placeholder="dd-MM-yyyy" required />
+                </div>
+            </div>
+
+            <div style="height: 5px;"></div>
+        </div>
+
+        <div class="col-md-4">
+            <div style="height: 5px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Date To</label>
+                <div class="col-md-7">
+                    <input type="text"
+                           id="txtDateTo"
+                           class="form-control datepicker"
+                           name="txtDateTo" ng-model="DateTo" placeholder="dd-MM-yyyy" required />
+                </div>
+            </div>
+
+            <div style="height: 5px;"></div>
+        </div>
+
+        <div class="col-md-4">
+            <div style="height: 3px;"></div>
+
+            <div class="form-group">
+                <div class="col-md-7">
+                    <span id="Show" class="btn btn-info margin-right-btn" ng-click="GetComplainSearch()">
+                        <i class="icon-search"></i> Search
+                    </span>
+                </div>
+            </div>
+
+            <div style="height: 5px;"></div>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
+

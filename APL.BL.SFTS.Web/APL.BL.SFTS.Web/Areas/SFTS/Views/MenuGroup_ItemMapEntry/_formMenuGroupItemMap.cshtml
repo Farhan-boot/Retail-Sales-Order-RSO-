@@ -1,0 +1,64 @@
+﻿<form novalidate name="frmMenuGroupItemMaps" id="frmMenuGroupItemMaps" class="form-horizontal row-border">
+    <input type="hidden" id="hMenuGroupItemMapId" readonly="readonly" ng-model="hMenuGroupItemMapId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Group For :</label>
+                <div class="col-md-6">
+                    <input type="radio"
+                           ng-model="MappingFor"
+                           ng-change="mappingForChanged()"
+                           name="groupfor" value="1" required />  RSO
+                    <input type="radio"
+                           ng-model="MappingFor"
+                           ng-change="mappingForChanged()"
+                           name="mappingfor" value="2" required /> Merchandiser
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Group :</label>
+                <div class="col-md-6">
+                    <select id="ddlGroup" class="select2-select-00"
+                            ng-model="GroupId"
+                            ng-change="groupChanged()"
+                            name="ddlGroup"
+                            data-placeholder="--Select Group--"
+                            style="width: 100%" ng-options="ct.GROUP_ID as ct.GROUP_NAME for ct in groupList">
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Menus :</label>
+                <div class="col-md-6">
+                    <div  ng-repeat="item in itemList">
+                      
+                            <input id="chkItem_{{item.ITEM_ID}}" type="checkbox" ng-model="item.Selected"/>
+                            {{item.MENU_NAME}}
+                    
+                    </div>
+                </div>
+                </div>
+                <div class="form-group  m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Is Active :</label>
+                    <div class="col-md-6">
+                        <input type="radio"
+                               ng-model="IsActive"
+                               name="isactive" value="1" required />  Yes
+                        <input type="radio"
+                               ng-model="IsActive"
+                               name="isactive" value="0" required /> No
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+            </div>
+
+        </div>
+</form>
+
+
+

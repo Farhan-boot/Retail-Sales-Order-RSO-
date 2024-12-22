@@ -1,0 +1,70 @@
+﻿
+<form novalidate name="frmAmbmVisitSearch" id="frmAmbmVisitSearch" class="form-horizontal row-border">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">AMBM Name</label>
+                <div class="col-md-8">
+                    <select id="ddlAmbm" class="select2-select-00"
+                            ng-model="Ambm"
+                            name="ddlAmbm"
+                            data-placeholder="--Select AMBM--"
+                            style="width: 100%" ng-options="al.ID as al.CODE_NAME for al in AmbmList">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div style="height: 10px;"></div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Date From</label>
+                <div class="col-md-7">
+                    <input type="text"
+                           id="txtDateFrom"
+                           class="form-control datepicker"
+                           name="txtDateFrom" ng-model="VisitDateFrom" placeholder="dd-MM-yyyy" required />
+                </div>
+            </div>
+
+            <div style="height: 10px;"></div>
+        </div>
+
+        <div class="col-md-4">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Date To</label>
+                <div class="col-md-7">
+                    <input type="text"
+                           id="txtDateTo"
+                           class="form-control datepicker"
+                           name="txtDateTo" ng-model="VisitDateTo" placeholder="dd-MM-yyyy" required />
+                </div>
+            </div>
+
+            <div style="height: 10px;"></div>
+            <div style="padding-left: 220px;">
+                <span id="Show" class="btn btn-info margin-right-btn" ng-click="GetAMBMShopVisitSearch()">
+                    <i class="icon-search"></i> Search
+                </span>
+            </div>
+
+            <div style="height: 10px;"></div>
+        </div>
+
+    </div>
+</form>
+
+
+
+
+

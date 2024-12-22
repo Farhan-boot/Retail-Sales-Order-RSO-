@@ -1,0 +1,24 @@
+﻿
+<div style="height: 20px;"></div>
+<label style="color:red; font-weight: bold">Total Record(s): {{TotalRowCount}} </label><label style="color:red; font-weight: bold">, Total Target Value:  {{TotalTargetValue}}</label>
+<table class="table table-striped table-fixed">
+    <thead style="background-color: #ecf0f5">
+        <tr>
+            <th>ROSCODE</th>
+            <th>SALAY YEAR MONTH</th>
+            <th>TYPE</th>
+            <th>AMOUNT</th>
+            <th>REMARKS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="excelData in uploadedExcelData">
+            <td>{{excelData.RSOCODE}}</td>
+            <td>{{excelData.BASE_YEAR_MONTH}}</td>
+            <td>{{excelData.TYPE}}</td>
+            <td>{{excelData.INCENTIVE}}</td>
+            <td>{{excelData.REMARKS}}</td>            
+        </tr>
+    </tbody>
+</table>
+

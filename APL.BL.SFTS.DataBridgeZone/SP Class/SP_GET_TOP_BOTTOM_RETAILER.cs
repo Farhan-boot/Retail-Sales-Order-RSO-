@@ -1,0 +1,71 @@
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace APL.BL.SFTS.DataBridgeZone
+{
+    [Serializable()]
+    [DataContract]
+    public class SP_GET_TOP_BOTTOM_RETAILER : ObjectMakerFromOracleSP.ISpClassEntity
+    {              
+        [DataMember]
+        public String KPI_CODE { get; set; }
+
+        [DataMember]
+        public Decimal TOP_BOTTOM_OPTION { get; set; }
+
+        [DataMember]
+        public String LABEL { get; set; }
+
+        [DataMember]
+        public Decimal POSITION { get; set; }
+
+        [DataMember]
+        public Decimal SCOPE { get; set; }
+
+        [DataMember]
+        public String MONTH_CODE { get; set; }
+
+        [DataMember]
+        public String MTD_CODE { get; set; }
+
+        [DataMember]
+        public String RETAILER_CODE { get; set; }
+
+        [DataMember]
+        public String RETAILER_NAME { get; set; }
+
+        [DataMember]
+        public String ACHIEVEMENT { get; set; }
+
+        public object MapToEntity(object[] values)
+        {
+            SP_GET_TOP_BOTTOM_RETAILER entity = new SP_GET_TOP_BOTTOM_RETAILER();
+            if (values[0].GetType() != typeof(System.DBNull))
+                entity.KPI_CODE = Convert.ToString(values[0]);
+            if (values[1].GetType() != typeof(System.DBNull))
+                entity.TOP_BOTTOM_OPTION = Convert.ToDecimal(values[1]);
+            if (values[2].GetType() != typeof(System.DBNull))
+                entity.LABEL = Convert.ToString(values[2]);
+            if (values[3].GetType() != typeof(System.DBNull))
+                entity.POSITION = Convert.ToDecimal(values[3]);
+            if (values[4].GetType() != typeof(System.DBNull))
+                entity.SCOPE = Convert.ToDecimal(values[4]);
+            if (values[5].GetType() != typeof(System.DBNull))
+                entity.MONTH_CODE = Convert.ToString(values[5]);
+            if (values[6].GetType() != typeof(System.DBNull))
+                entity.MTD_CODE = Convert.ToString(values[6]);
+            if (values[7].GetType() != typeof(System.DBNull))
+                entity.RETAILER_CODE = Convert.ToString(values[7]);
+            if (values[8].GetType() != typeof(System.DBNull))
+                entity.RETAILER_NAME = Convert.ToString(values[8]);
+            if (values[9].GetType() != typeof(System.DBNull))
+                entity.ACHIEVEMENT = Convert.ToString(values[9]);
+
+            return entity;
+        }
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

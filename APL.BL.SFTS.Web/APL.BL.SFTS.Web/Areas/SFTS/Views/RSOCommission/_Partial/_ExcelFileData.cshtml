@@ -1,0 +1,46 @@
+﻿@model IEnumerable<APL.BL.SFTS.DataBridgeZone.SP_GET_FF_RSO_EARNING_COMMISSION_FILE>
+
+<div style="height: 20px;"></div>
+
+@if (Model != null)
+{
+    <label style="color:red; font-weight: bold">Total Record(s):  @Model.First().ROW_COUNT</label><label style="color:red; font-weight: bold">, Total Target Value:  @Model.First().TOTAL_COMMISSION_VALUE</label>
+    <input id="uploadCode" hidden="hidden" value="@Model.First().UPLOAD_CODE" />
+                                <input id="hTargetId" hidden="hidden" ng-model="hTargetId" />
+                                <input id="hVersion" hidden="hidden" ng-model="hVersion" />
+                                <table class="table table-striped table-fixed">
+                                    <thead style="background-color: #ecf0f5">
+                                        <tr>
+                                            <th>ROSCODE</th>
+                                            <th>TARGET</th>
+                                            <th>ACHIVEMENT</th>
+                                            <th>INCENTIVE</th>
+                                            <th>SALAY_YEAR_MONTH</th>
+                                            <th>CAMP_NAME</th>
+                                            <th>KPI</th>
+                                            <th>BANK_NAME</th>
+                                            <th>BANK_AC</th>
+                                            <th>VENDOR</th>
+                                            <th>STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ROSCODE </td>
+                                                <td>@item.TARGET </td>
+                                                <td>@item.ACHIVEMENT </td>
+                                                <td>@item.INCENTIVE </td>
+                                                <td>@item.SALAY_YEAR_MONTH</td>
+                                                <td>@item.CAMP_NAME</td>
+                                                <td>@item.KPI</td>
+                                                <td>@item.BANK_NAME</td>
+                                                <td>@item.BANK_AC</td>
+                                                <td>@item.VENDOR</td>
+                                                <td>@item.STATUS</td>
+                                            </tr>
+}
+                                    </tbody>
+                                </table>
+}

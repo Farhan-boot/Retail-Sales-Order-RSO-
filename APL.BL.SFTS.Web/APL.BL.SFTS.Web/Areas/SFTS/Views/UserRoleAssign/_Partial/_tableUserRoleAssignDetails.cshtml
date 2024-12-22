@@ -1,0 +1,28 @@
+﻿
+<div id="customScrolledTableInspac" style="overflow: auto; max-width: 1230px;">
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+
+    <div style="height: 10px;"></div>
+    <div class="rowdiv" style="max-height: 350px; overflow: auto;">
+        <table class="table table-striped table-bordered table-hover" style="width: 100%;">
+            <tr ng-repeat="dataModel in userWiseRoleDetails|filter:userWiseRoleDetailsSearch" ng-class="{'rowselected':$index == selectedRow}" ng-click="setClickedRow($index)">
+                <td class="inputClass" style="display: none;">{{dataModel.ID}}</td>
+                <td class="inputClass">{{dataModel.CODE}}</td>
+                <td class="inputClass">{{dataModel.NAME}}</td>        
+                <td class="inputOptionClass" style="text-align:center; min-width:50px; color:white">
+                     <input type="checkbox" ng-model="dataModel.IS_ACTIVE" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+

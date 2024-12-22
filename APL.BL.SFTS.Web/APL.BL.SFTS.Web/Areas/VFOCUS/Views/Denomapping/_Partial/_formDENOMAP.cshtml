@@ -1,0 +1,58 @@
+﻿
+<form novalidate name="frmNewGraphInfo" id="frmNewGraphInfo" class="form-horizontal row-border">
+    <input type="hidden" id="hGraphId" readonly="readonly" ng-model="hGraphId" />
+    <div class="row">
+        <div class="col-md-6">
+
+            
+
+
+            <div class="form-group m-b-10 clearfix">
+
+
+            </div>
+
+
+            <div class="col-lg-12" >
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Un Assigned List</div>
+                            <div class="panel-body">
+                                <ul class="list-unstyled">
+                                    <li ng-repeat="x in unassignGraph">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" ng-model="x.ISASSIGN">{{x.PACK_NAME}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <button  ng-click="UpdateAssigngnGrapth()"  class="btn btn-default"><i class="fa fa-arrow-circle-right"></i></button>
+                        <br />
+                        <br />
+                        <button  ng-click="UpdateAssignUnAssignGrapth()" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i></button>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Assigned List</div>
+                            <div class="panel-body">
+                                <ul class="list-unstyled">
+                                    <li ng-repeat="x in assignGraph">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" ng-model="x.ISASSIGN">{{x.PACK_NAME}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+

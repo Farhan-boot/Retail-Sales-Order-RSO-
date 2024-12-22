@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="DirectoryKey" content="@System.Configuration.ConfigurationManager.AppSettings["DirectoryKey"].ToString()" />
+    <link rel="shortcut icon" href="~/Content/img/favicon.png" type="image/ico">
+    <title>Banglalink SFTS</title>
+
+
+    <link href="~/Content/GoogleFont.css" rel="stylesheet" />
+    <!--=== JavaScript ===-->
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/customizeBL.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.11.2.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/photo-gallery.js"></script>
+    <script>
+        var DirectoryKey = "";
+        $(document).ready(function () {
+            DirectoryKey = angular.element(document).find('meta[name=DirectoryKey]').prop("content");
+        });
+    </script>
+</head>
+<body>
+    @*<form>*@
+    <div class="container body-content" ng-app="FFTS_App_Login">
+        @RenderBody()
+    </div>
+    <div class="clearfix"></div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                @*<p style="text-align: center">Copyright © @DateTime.Now.Year Arena Phone (BD) Ltd.</p>*@
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/angular.js"></script>
+    @*<script src="~/Scripts/angular.min.js"></script>*@
+    <script src="~/ScriptsNg/Modules/FFTS_App.js"></script>
+    <script src="~/ScriptsNg/Controllers/LogoutCtrl.js"></script>
+
+    @RenderSection("AngularScript", false)
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿
+<div style="height: 20px;"></div>
+<label style="color:red; font-weight: bold">Total Record(s): {{TotalRowCount}} </label><label style="color:red; font-weight: bold">, Total Target Value:  {{TotalTargetValue}}</label>
+<table class="table table-striped table-fixed">
+    <thead style="background-color: #ecf0f5">
+        <tr>
+            <th>Month Name</th>
+            <th>Item Code</th>
+            <th>Item Name</th>
+            <th>Region</th>
+            <th>Zone</th>
+            <th>Distributor</th>
+            <th>Staff Code</th>
+            <th>Staff Name</th>
+            <th>Target Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="excelData in uploadedStaffExcelData">
+            <td>{{excelData.MONTH_NAME}}</td>
+            <td>{{excelData.TARGET_ITEM_CODE}}</td>
+            <td>{{excelData.ITEM_NAME}}</td>
+            <td>{{excelData.REGION}}</td>
+            <td>{{excelData.ZONE}}</td>
+            <td>{{excelData.DISTRIBUTOR_NAME}}</td>
+            <td>{{excelData.STAFF_CODE}}</td>
+            <td>{{excelData.STAFF_NAME}}</td>
+            <td>{{excelData.TARGET_VALUE}}</td>
+        </tr>
+    </tbody>
+</table>
+

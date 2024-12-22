@@ -1,0 +1,94 @@
+﻿
+<form novalidate name="frmComplain" id="frmComplain" class="form-horizontal row-border">
+    <input type="hidden" id="hComplainId" readonly="readonly" ng-model="hComplainId" />
+
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Complain Date :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{ComplainDate}}</label>
+                </div>
+            </div>  
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">{{ComplainForCodeLabel}} :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{ComplainForCode}}</label>
+                </div>
+            </div>  
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">{{ComplainForNameLabel}} :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{ComplainForName}}</label>
+                </div>
+            </div>  
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Status :</label>
+                <div class="col-md-6">
+                    <select id="ddlStatusChange" class="select2-select-00"
+                            ng-model="StatusChange"
+                            name="ddlStatusChange"
+                            data-placeholder="--Select Status--"
+                            style="width: 100%" ng-options="cs.ID as cs.NAME for cs in listComplainStatus">
+                        <option></option>
+                    </select>
+                </div>
+            </div>  
+                
+            <div style="height: 10px;"></div> 
+
+            @*<div class="form-group m-b-10 clearfix">
+                <label class="control-label" style="color: red;" ng-show="IsMapNotAvail">{{msgMapNotAvail}}</label>
+            </div>*@
+
+        </div>
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Distributor Code :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{DistributorCode}}</label>
+                </div>
+            </div> 
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Distributor Name :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{DistributorName}}</label>
+                </div>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Description :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{Description}}</label>
+                </div>
+            </div>
+
+                 
+            <div style="height: 10px;"></div>
+        </div>
+
+        
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <label class="control-label" style="padding-left: 43px">Resoluation Detail :</label>
+        </div>
+        <div class="col-md-9">
+            <textarea rows="4" id="taResoluationDetail" ng-model="ResoluationDetail" style="width: 100%"></textarea>
+        </div>
+
+    </div>
+</form>
+
+
+
+

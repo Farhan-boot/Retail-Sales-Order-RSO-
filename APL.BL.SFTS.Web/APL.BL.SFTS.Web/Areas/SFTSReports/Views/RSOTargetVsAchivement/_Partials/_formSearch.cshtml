@@ -1,0 +1,106 @@
+﻿
+<form novalidate name="frmSearch" id="frmSearch" class="form-horizontal row-border">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Cluster</label>
+                <div class="col-md-7">
+                    <select id="ddlCluster" class="select2-select-00"
+                            ng-model="Cluster"
+                            ng-change="loadRegions()"
+                            name="ddlCluster"
+                            ng-disabled="IsClusterDisabled"
+                            data-placeholder="--Select Cluster--"
+                            style="width: 100%" ng-options="c.ID as c.NAME for c in clusterList">
+                           <option></option>                                         
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Region</label>
+                <div class="col-md-7">
+                    <select id="ddlRegion" class="select2-select-00"
+                            ng-model="Region"
+                            ng-change="loadZoneRegionOnchange()"
+                            name="ddlRegion"
+                            ng-disabled="IsRegionDisabled"
+                            data-placeholder="--Select Region--"
+                            style="width: 100%" ng-options="r.REGION_ID as r.REGION_NAME for r in regionList">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Zone</label>
+                <div class="col-md-7">
+                    <select id="ddlZone" class="select2-select-00"
+                            ng-model="Zone"                           
+                            name="ddlZone"
+                            ng-disabled="IsZoneDisabled"
+                            data-placeholder="--Select Zone--"
+                            style="width: 100%" ng-options="z.ZONE_ID as z.ZONE_NAME for z in zoneList">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            @*<div class="form-group">
+                <label class="col-md-4 control-label">Route</label>
+                <div class="col-md-7">
+                    <select id="ddlRoute" class="select2-select-00"
+                            ng-model="Route"
+                            name="ddlRoute"
+                            ng-disabled="IsRouteDisabled"
+                            data-placeholder="--Select Route--"
+                            style="width: 100%" ng-options="rt.ID as rt.NAME for rt in routeList">
+                        <option></option>
+                    </select>
+                </div>
+            </div>*@
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Target Item</label>
+                <div class="col-md-7">
+                    <select id="ddlTargetItem" class="select2-select-00"
+                            ng-model="TargetItem"
+                            name="ddlTargetItem"
+                            data-placeholder="--Select Target Item--"
+                            style="width: 100%" ng-options="rt.TARGET_ITEM_ID as rt.TARGET_ITEM_NAME for rt in itemList">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="col-md-7">
+                    <span id="Show" class="btn btn-info margin-right-btn" ng-click="GetRsoTargetVsAchivement()" ng-disabled="frmSearch.$invalid">
+                        <i class="icon-search"></i> View Report
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+
+
+
+
+

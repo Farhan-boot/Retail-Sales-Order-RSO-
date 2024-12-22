@@ -1,0 +1,43 @@
+﻿
+<form novalidate name="frmNewGraphInfo" id="frmNewGraphInfo" class="form-horizontal row-border">
+    <input type="hidden" id="hGraphId" readonly="readonly" ng-model="hGraphId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">Graph Code:</label>
+                <div class="col-md-6">
+
+                    <input type="text"
+                           id="txtGraphCode"
+                           class="form-control"
+                           name="txtGraphCode" ng-model="GraphCode" placeholder="Graph Code" required />
+
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Graph Name:</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtGraphName"
+                           class="form-control"
+                           name="txtGraphName" ng-model="GraphName" placeholder="Graph Name" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Details:</label>
+                <div class="col-md-6">
+                    <textarea rows="2"
+                              id="txtDetail"
+                              class="form-control"
+                              name="txtDetail" ng-model="Detail" placeholder="Detail">
+                    </textarea>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+    </div>
+</form>
+

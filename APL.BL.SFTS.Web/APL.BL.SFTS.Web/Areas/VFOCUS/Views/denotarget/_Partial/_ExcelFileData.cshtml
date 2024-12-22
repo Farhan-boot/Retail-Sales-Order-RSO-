@@ -1,0 +1,39 @@
+﻿@model IEnumerable<APL.BL.SFTS.DataBridgeZone.GET_VFOCUS_DENO_TARGET>
+
+<div style="height: 20px;"></div>
+
+@if (Model != null)
+{
+    <label style="color:red; font-weight: bold">Total Record(s):  </label><label style="color:red; font-weight: bold"> Total Target Value:  </label>
+                                <input id="uploadCode" hidden="hidden" value="" />
+                                <input id="hTargetId" hidden="hidden" ng-model="hTargetId" />
+                                <input id="hVersion" hidden="hidden" ng-model="hVersion" />
+                                <table class="table table-striped table-fixed">
+                                    <thead style="background-color: #ecf0f5">
+                                        <tr>
+                                           
+                                            <th>RSO CODE</th>
+                                            <th>DENO</th>
+                                            <th>TARGET COUNT</th>
+                                            <th>DENO AMOUNT</th>
+                                            <th>DATE START</th>
+                                            <th>DATE END</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ROSCODE </td>
+                                                <td>@item.DENO_ID </td>
+                                                <td>@item.TARGET_COUNT </td>
+                                                <td>@item.DENO_AMOUNT </td>
+                                                <td>@item.DATE_START </td>
+                                                <td>@item.DATE_END </td>
+                                               
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+}

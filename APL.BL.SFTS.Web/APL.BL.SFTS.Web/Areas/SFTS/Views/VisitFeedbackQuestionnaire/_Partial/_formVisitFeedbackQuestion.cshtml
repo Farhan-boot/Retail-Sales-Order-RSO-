@@ -1,0 +1,47 @@
+﻿
+<form novalidate name="frmVisitFeedbackQuestion" id="frmVisitFeedbackQuestion" class="form-horizontal row-border">
+    <input type="hidden" id="hQuestionId" readonly="readonly" ng-model="hQuestionId" />
+   
+    <div class="row" style="margin-top: 10px;">
+        <table style="width: 70%; margin-left: 10px;" >
+            <tr style="text-align: center"><td><label id="VisitType">Visit Type: </label></td><td><label>{{DisplayVisitType}},</label></td> <td><label id="EntityType">Entity Type: </label></td><td>{{DisplayEntityType}},</td> <td><label id="CenterType">CenterType: </label></td><td>{{DisplayCenterType}}</td></tr>
+        </table>          
+    </div>
+
+     <div class="row">
+        <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="control-group col-lg-2 col-md-2 col-sm-64 col-xs-4">
+                <label class="control-label pull-left" for="input01">Display Order:</label><span class="error">*</span>
+                <div class="controls">
+                    <input name="txtDisplay" type="text" id="txtDisplay" placeholder="Enter display order" ng-model="DisplayOrder" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="control-group col-lg-6 col-md-7 col-sm-64 col-xs-4">
+                <label class="control-label pull-left" for="input01">Question Text:</label><span class="error">*</span>
+                <div class="controls">
+                    <input name="txtQuestion" type="text" placeholder="Write your question text here!" id="txtQuestion" ng-model="Question" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="control-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="toolbar no-padding pull-right">
+                    <div ></div>
+                    <span id="save" class="btn btn-danger" ng-click="clearQuestion()">
+                        <i class="icon-refresh"></i> Reset
+                    </span>
+
+                    <span id="save" class="btn btn-success" ng-click="saveQuestion()" ng-disabled="frmVisitFeedbackQuestion.$invalid">
+                        <i class="icon-save"></i> {{SaveQuestion}}
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+

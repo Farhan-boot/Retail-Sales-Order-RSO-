@@ -1,0 +1,65 @@
+﻿
+<form novalidate name="frmDistributorTargetRevise" id="frmDistributorTargetRevise" class="form-horizontal row-border">
+    <input type="hidden" id="hTargetId" readonly="readonly" ng-model="hTargetId" />
+    <input type="hidden" id="hTargetDetailId" readonly="readonly" ng-model="hTargetDetailId" />
+    <input type="hidden" id="hVersion" readonly="readonly" ng-model="hVersion" />
+    <input type="hidden" id="hRevisionValidUpTo" readonly="readonly" ng-model="hRevisionValidUpTo" />
+    <div class="row">
+        <div class="col-md-offset-2 col-md-7">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Item Name :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{ItemName}}</label>
+                </div>
+            </div>   
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Period :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{TargetPeriod}}</label>
+                </div>
+            </div>   
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Version :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{Version}}</label>
+                </div>
+            </div>   
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Value :</label>
+                <div class="col-md-6">
+                    <label class="control-label">{{TargetValue}}</label>
+                </div>
+            </div> 
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Revised Value :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtRevisedTargetValue"
+                           class="form-control"
+                           name="txtRevisedTargetValue" ng-model="RevisedTargetValue" required />
+                </div>
+                <span class="error">*</span>
+            </div> 
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Comments :</label>
+                <div class="col-md-6">
+                    <textarea rows="2" cols="3"
+                              id="txtComments"
+                              class="form-control"
+                              name="txtComments" ng-model="Comment"></textarea>
+                </div>
+            </div>
+
+
+            <div style="height: 10px;"></div> 
+        </div>
+    </div>
+</form>
+

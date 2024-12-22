@@ -1,0 +1,175 @@
+﻿<form novalidate name="frmNotice" id="frmNotice" class="form-horizontal row-border" enctype="multipart/form-data">
+    <input type="hidden" id="hNOTICE_ID" readonly="readonly" ng-model="hNOTICE_ID" />
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Notification Type :</label>
+                <div class="col-md-6">
+                    <select id="ddlNoticeType" class="select2-select-00"
+                            ng-model="NOTICE_TYPE_ID"
+                            name="ddlNoticeType"
+                            data-placeholder="--Select Notification Type--"
+                            style="width: 100%" ng-options="ct.NOTIFICATION_TYPE_ID as ct.NOTIFICATION_TYPE_NAME for ct in listNoticeTypes" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group" ng-show="IsRegionShow">
+                <label class="col-md-4 control-label" for="input17">Region :</label>
+                <div class="col-md-6">
+                    @*<select id="ddlRegion" class="select2-select-00"
+                                ng-model="REGION_ID"
+                                name="ddlRegion"
+                                data-placeholder="--Select Region--" multiple
+                                style="width: 100%" ng-options="ct.REGION_ID as ct.REGION_NAME for ct in regionList">
+                            <option></option>
+                        </select>
+                        <span id="lblRegions">{{RE_NAMES}}</span>
+                        <input type="hidden" id="hdRegions" ng-model="RE_IDS" value="" />*@
+                    <ngdropdownmultiselect control="ngDropdownMultiselectControlo">
+                        <div ng-dropdown-multiselect="" options="listDDLRegion" selected-model="ListSelectedRegion" checkboxes="true">
+                        </div>
+                    </ngdropdownmultiselect>
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group" ng-show="IsDitriburotShow">
+                <label class="col-md-4 control-label" for="input17">Distributor :</label>
+                <div class="col-md-6">
+                    @*<select id="ddlDistributor" class="select2-select-00"
+                                ng-model="DISTRIBUTOR_ID"
+                                name="ddlDistributor"
+                                data-placeholder="--Select Distributor--" multiple
+                                style="width: 100%" ng-options="ct.DISTRIBUTOR_ID as ct.DISTRIBUTOR_CODE for ct in distributorList">
+                            <option></option>
+                        </select>
+                        <span id="lblDistributors">{{DD_NAMES}}</span>
+                        <input type="hidden" id="hdDistributors" value="{{DD_IDS}}" />*@
+                    <ngdropdownmultiselect control="ngDropdownMultiselectControlo">
+                        <div ng-dropdown-multiselect="" options="listDDLDistributor" selected-model="ListSelectedDistributor" checkboxes="true">
+                        </div>
+                    </ngdropdownmultiselect>
+                </div>
+                <span class="error">*</span>
+            </div>
+            @*<div class="form-group" ng-show="IsRSOShow">
+                    <label class="col-md-4 control-label" for="input17">RSO :</label>
+                    <div class="col-md-6">
+                        <select id="ddlRSO" class="select2-select-00"
+                                ng-model="RSOId"
+                                name="ddlRSO"
+                                data-placeholder="--Select RSO--"   multiple
+                                style="width: 100%" ng-options="ct.RSO_ID as ct.RSO_NAME_CODE for ct in rsoList">
+                            <option></option>
+                        </select>
+                    </div>
+                    <span class="error">*</span>
+                </div>*@
+            <div class="form-group">
+                <label class="col-md-4 control-label">Date From :</label>
+                <div class="col-md-6">
+
+                    <input type="text"
+                           id="txtDateFrom"
+                           class="form-control datepicker"
+                           name="txtDateFrom" ng-model="FROM_DATE" placeholder="dd-MM-yyyy" required /> @*//ng-change="dateValidation()"*@
+
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+
+                <div class="form-group  m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Message :</label>
+                    <div class="col-md-6">
+                        <textarea id="txtMessage" name="txtMessage" class="form-control" ng-model="MESSAGE" rows="4" cols="50" required></textarea>
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+                <div class="form-group  m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Upload jpg/png/bmp file :</label>
+                    <div class="col-md-6">
+                        <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+                    </div>
+                    <span class="error"></span>
+                </div>
+
+                <div class="form-group m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Is Active :</label>
+                    <div class="col-md-6">
+
+                        <input type="radio" ng-model="IS_ACTIVE" checked id="html" name="is_active" value="1" required> Yes
+                        &nbsp; &nbsp;<input type="radio" ng-model="IS_ACTIVE" id="html" name="is_active" value="0" required>   No
+                    </div>
+                </div>
+                <input type="hidden" id="hdFileName" />
+                <input type="hidden" id="hdExcelFileName" />
+            </div>
+            <div class="col-md-6">
+                <div style="height: 10px;"></div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">Notification For :</label>
+                    <div class="col-md-6">
+                        <select id="ddlNoticeFor" class="select2-select-00"
+                                ng-model="NOTICE_FOR_ID"
+                                name="ddlNoticeFor"
+                                ng-change="noticeForChanged()"
+                                data-placeholder="--Select Notification For--"
+                                style="width: 100%" ng-options="ct.ID as ct.Name for ct in listNoticeFors" required>
+                            <option></option>
+                        </select>
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="input17">Date To :</label>
+                    <div class="col-md-6">
+                        <input type="text"
+                               id="txtDateTo"
+                               class="form-control datepicker"
+                               name="txtDateTo" ng-model="TO_DATE" placeholder="dd-MM-yyyy" required />
+                    </div>
+                    <span class="error">*</span>
+                </div>
+                <div class="form-group  m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Title :</label>
+                    <div class="col-md-6">
+                        <input type="text" id="txtTitle" class="form-control" ng-model="TITLE" name="txtTitle" required />
+                    </div>
+                    <span class="error">*</span>
+                </div>
+                <div class="form-group  m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">URL :</label>
+                    <div class="col-md-6">
+                        <input type="text"
+                               id="txtURL"
+                               class="form-control"
+                               ng-model="URL"
+                               name="txtURL" />
+                    </div>
+                    <span class="error"></span>
+
+                </div>
+                <div class="form-group  m-b-10 clearfix" ng-show="IsRSOShow">
+                    @*<label class="btn btn-sm btn-info" ng-click="ExportExcelFile(1)">Sample Excel</label>*@
+                    <label class="col-md-4 control-label" for="input17">Upload RSO excel :</label>
+                    <div class="col-md-6">
+                        <input type="file" name="uploadedExcelFile" id="uploadedExcelFile" multiple>
+
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <img id="imgFile" style="width:120px;height:80px;" src="{{FILENAME}}" alt="" />
+        </div>
+    </form>
+

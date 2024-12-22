@@ -1,0 +1,25 @@
+﻿
+<form novalidate name="frmPermissions" id="frmPermissions" class="form-horizontal row-border">
+    <input type="hidden" id="hPermissionId" readonly="readonly" ng-model="hPermissionId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="input17">Role</label>
+                <div class="col-md-6">
+                    <select id="ddlRole" class="select2-select-00"
+                            ng-model="Role"
+                            name="ddlRole"
+                            data-placeholder="--Select Role--"
+                            style="width: 100%" ng-options="rl.ROLE_ID as rl.ROLE_NAME for rl in listRole" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>   
+
+        </div>
+    </div>
+
+</form>
+
+

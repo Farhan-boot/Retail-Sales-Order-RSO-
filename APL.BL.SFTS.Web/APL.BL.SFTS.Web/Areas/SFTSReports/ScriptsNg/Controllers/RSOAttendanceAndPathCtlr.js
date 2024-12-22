@@ -1,0 +1,326 @@
+﻿/**
+ * RSOAttendanceAndPathCtlr.js
+ */
+
+app.controller('RSOAttendanceAndPathCtlr', ['$scope', 'crudService', 'conversion', '$filter', '$localStorage', 'uiGridConstants',
+    function ($scope, crudService, conversion, $filter, $localStorage, uiGridConstants) {
+
+        var baseUrl = DirectoryKey +'/SFTSReports/api/RetailSalesOfficer/';
+      
+        $scope.PageTitle = 'RSO Attendance And Path';
+        $scope.IsClusterDisabled = true;
+        $scope.IsRegionDisabled = true;
+        $scope.IsZoneDisabled = true;
+        $scope.IsRouteDisabled = true;
+        $scope.gridOptionsRsoAttendanceAndPath = [];
+
+        function CommonEntity() {
+            $scope.HeaderToken = $scope.tokenManager.generateSecurityToken();
+            $scope.loggedUserId = $scope.loggedUserManager.loggedUser();
+        }
+        CommonEntity();
+    
+        var IsPermitted = false;
+        function GetPermission(code) {
+            objcmnParam = {
+                loggeduser: $scope.loggedUserId,
+                PermissionCode: code
+            };
+
+            var apiRoute = DirectoryKey + '/SFTS/api/Permission/GetRoleWisePermission/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "]";
+
+            var roleWisePermission = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            roleWisePermission.then(function (response) {
+                $scope.listRoleWisePermission = response.data.roleWisePermission;
+                IsPermitted = response.data.IsPermitted;
+                if (IsPermitted != true) {
+
+                    window.location.href = DirectoryKey + "/SFTS/NoPermission";
+                    //window.location.href = DirectoryKey + "/SFTS/NoPermission";
+                }
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+        //GetPermission('00701');
+
+        //**********----Get User Work Area ----***************
+        var isRegionalUser = 0;
+        function loadUserWorkArea() {
+            objcmnParam = {
+                loggeduser: $scope.loggedUserId
+            };
+
+            var apiRoute = DirectoryKey + '/SFTSReports/api/Common/GetUserWorkArea/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "]";
+
+            var workAreas = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            workAreas.then(function (response) {
+                $scope.workAreaList = response.data.objListUserWorkArea;
+                $scope.marketAreaType = $scope.workAreaList[0].MARKET_AREA_TYPE_ID;
+                switch($scope.marketAreaType)
+                {
+                    case 6:
+                    case 7:
+                    case 1:
+                        $scope.IsClusterDisabled = false;
+                        $scope.IsRegionDisabled = false;
+                        $scope.IsZoneDisabled = false;
+                        $scope.IsRouteDisabled = false;
+                        loadClusters();
+                        break;
+                    case 3:
+                        $scope.IsClusterDisabled = true;
+                        $scope.IsRegionDisabled = false;
+                        $scope.IsZoneDisabled = false;
+                        $scope.IsRouteDisabled = false;
+                        isRegionalUser = 1;
+                        $scope.loadRegions();
+                        break;
+                    case 4:
+                        $scope.IsClusterDisabled = true;
+                        $scope.IsRegionDisabled = true;
+                        $scope.IsZoneDisabled = false;
+                        $scope.IsRouteDisabled = false;
+                        $scope.loadZones();
+                        break;
+                    default:
+                }
+
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+        loadUserWorkArea();
+   
+        //**********----Get Clusters ----***************
+        function loadClusters() {
+            objcmnParam = {
+                loggeduser: $scope.loggedUserId                              
+            };
+
+            var apiRoute = DirectoryKey + '/SFTSReports/api/Common/GetClusters/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "]";
+
+            var clusters = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            clusters.then(function (response) {
+                $scope.clusterList = response.data.objListCluster;
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+      
+        //**********----Get Regions ----***************
+        $scope.loadRegions = function() {
+            objcmnParam = {
+                loggeduser: $scope.loggedUserId,
+                IsRegionalUser: isRegionalUser,
+                ClusterId: $scope.Cluster
+            };
+
+            var apiRoute = DirectoryKey + '/SFTSReports/api/Common/GetRegions/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "]";
+
+            var regions = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            regions.then(function (response) {
+                $scope.regionList = response.data.objListRegion;
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+
+        //**********----Get Zones ----***************
+        $scope.loadZones = function () {
+            objcmnParam = {
+                loggeduser: $scope.loggedUserId,
+                IsZonalUser: 1,
+                RegionId: $scope.Region
+            };
+
+            var apiRoute = DirectoryKey + '/SFTSReports/api/Common/GetZones/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "]";
+
+            var zones = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            zones.then(function (response) {
+                $scope.zoneList = response.data.objListZone;
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+
+        $scope.loadZoneRegionOnchange = function () {
+            objcmnParam = {
+                loggeduser: 0,
+                RegionId: $scope.Region
+            };
+
+            var apiRoute = DirectoryKey + '/SFTSReports/api/Common/GetZones/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "]";
+
+            var zones = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            zones.then(function (response) {
+                $scope.zoneList = response.data.objListZone;
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+
+        //**********----Get Rso ----***************
+        $scope.loadRso = function (isPaging) {
+            $("#ddlRso").select2("val", "");
+            objcmnParam = {
+                //ZoneId: $scope.Zone == null || $scope.Zone == 0 || $scope.Zone == undefined ? 0 : $scope.Zone,
+                loggeduser: $scope.loggedUserId
+            };
+
+            var apiRoute = DirectoryKey + '/SFTS/api/CmnDropdown/GetRSO/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "]";
+
+            var listRso = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            listRso.then(function (response) {
+                $scope.RsoList = response.data.objListRso;
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+        $scope.loadRso(0);
+
+
+        //**********----Get Sales And Daily Attendance----***************
+        $scope.GetRsoAttendanceAndPath = function () {
+            $scope.gridOptionsRsoAttendanceAndPath.enableFiltering = false;
+            $scope.gridOptionsRsoAttendanceAndPath.enableGridMenu = true;
+
+            //For Loading
+            $scope.loaderMoreRsoAttendanceAndPath = true;
+            $scope.lblMessageForRsoAttendanceAndPath = 'loading please wait....!';
+            $scope.result = "color-red";
+
+            $scope.highlightFilteredHeader = function (row, rowRenderIndex, col, colRenderIndex) {
+                if (col.filters[0].term) {
+                    return 'header-filtered';
+                } else {
+                    return '';
+                }
+            };
+
+            $scope.gridOptionsRsoAttendanceAndPath = {
+                useExternalSorting: false,
+                enableSorting: true,
+                useExternalPagination: true,
+                enableFiltering: false,
+                enableRowSelection: true,
+                enableSelectAll: true,
+                showFooter: true,
+                enableGridMenu: true,
+
+                columnDefs: [
+                    { name: "DATE", displayName: "Date", title: "Date", width: '8%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "ROUTE_CODE_NAME", displayName: "Route", title: "Route", width: '20%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "RSO_CODE_NAME", displayName: "RSO Code", title: "RSO Code", width: '12%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "SR_NO", displayName: "SR NO", title: "SR NO", width: '12%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "RETAILER_CODE", displayName: "Retailer Code", title: "Retailer Code", width: '10%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "SALES_CALL_LOGIN_TIME", displayName: "Sales Call Login Time", title: "Sales Call Login Time", width: '20%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "SALES_CALL_LOGOUT_TIME", displayName: "Sales Call Logout Time", title: "Sales Call Logout Time", width: '20%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "TIME_ELAPSED", displayName: "Time Elapsed(sec)", title: "Time Elapsed", width: '20%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "LAND_MARK", displayName: "Land Mark(A,B)", title: "Land Mark(A,B)", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "RETAILER_LAT_LONG", displayName: "Retailer LAT-LONG", title: "Retailer LAT-LONG", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "SALES_CALL_LOCATION", displayName: "Sales Call LAT-LONG", title: "Sales Call LAT-LONG", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "DISTANCE", displayName: "Distance", title: "Distance", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "MATCH", displayName: "Matched", title: "Matched", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "CHECKOUT_FEEDBACK", displayName: "Checkout Feedback", title: "Checkout Feedback", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "CHECKOUT_REMARKS", displayName: "Checkout Remarks", title: "Checkout Remarks", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "CLOSE_BTS_CODE", displayName: "Closed BTS Code", title: "Closed BTS Code", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: "TOTAL_SALES_AMOUNT", displayName: "Total Sales Amount", title: "Total Sales Amount", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                    //{ name: "DEVIATION", displayName: "Deviation", title: "Deviation", width: '15%', headerCellClass: $scope.highlightFilteredHeader },
+                   
+                    //{ name: "DMS_ENTRY_BY_OPERATOR", displayName: "DMS Entry By Operator", title: "DMS Entry By Operator", width: '20%', headerCellClass: $scope.highlightFilteredHeader },
+                    { name: 'Action', displayName: "  ", enableColumnResizing: false, enableFiltering: false, enableSorting: false, pinnedRight: true, width: '5%', headerCellClass: $scope.highlightFilteredHeader }
+                ],
+
+                onRegisterApi: function (gridApi) {
+                    $scope.gridApi = gridApi;
+                },
+                enableFiltering: false,
+                enableGridMenu: true,
+                enableSelectAll: true,
+                exporterCsvFilename: 'RSO Attendance And Path.csv',
+                exporterPdfDefaultStyle: { fontSize: 9 },
+                exporterPdfTableStyle: { margin: [30, 30, 30, 30] },
+                exporterPdfTableHeaderStyle: { fontSize: 10, bold: true, italics: true, color: 'red' },
+                exporterPdfHeader: { text: "RSO Attendance And Path", style: 'headerStyle' },
+                exporterPdfFooter: function (currentPage, pageCount) {
+                    return { text: currentPage.toString() + ' of ' + pageCount.toString(), style: 'footerStyle' };
+                },
+                exporterPdfCustomFormatter: function (docDefinition) {
+                    docDefinition.styles.headerStyle = { fontSize: 22, bold: true };
+                    docDefinition.styles.footerStyle = { fontSize: 10, bold: true };
+                    return docDefinition;
+                },
+                exporterPdfOrientation: 'portrait',
+                exporterPdfPageSize: 'LETTER',
+                exporterPdfMaxGridWidth: 500,
+                exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location")),
+            };
+
+            objcmnParam = {
+                loggeduser: $scope.loggedUserId,
+                FromDate: $scope.FromDate == "" || $scope.FromDate == null ? null : conversion.getStringToDate($scope.FromDate),
+                ToDate: $scope.ToDate == "" || $scope.ToDate == null ? null : conversion.getStringToDate($scope.ToDate),
+            };
+
+            objSearchParam = {
+                ClusterId: $scope.Cluster,
+                RegionId: $scope.Region,
+                ZoneId: $scope.Zone
+            }
+
+            var apiRoute = baseUrl + 'GetRsoAttendanceAndPath/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "," + JSON.stringify(objSearchParam) + "]";
+
+            var tva = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            tva.then(function (response) {
+                $scope.tvaList = response.data.rsoAttendanceAndPathList;
+                $scope.gridOptionsRsoAttendanceAndPath.data = response.data.rsoAttendanceAndPathList;
+                $scope.loaderMoreRsoAttendanceAndPath = false;
+            },
+            function (error) {
+                console.log("Error: " + error);
+            });
+        }
+
+        $scope.GetRsoAttendanceAndPath();
+        $scope.ExportExcelFile = function () {
+            objcmnParam = {
+                loggeduser: $scope.loggedUserId,
+                FromDate: $scope.FromDate == "" || $scope.FromDate == null ? null : conversion.getStringToDate($scope.FromDate),
+                ToDate: $scope.ToDate == "" || $scope.ToDate == null ? null : conversion.getStringToDate($scope.ToDate),
+            };
+
+            objSearchParam = {
+                ClusterId: $scope.Cluster,
+                RegionId: $scope.Region,
+                ZoneId: $scope.Zone
+            }
+
+            var apiRoute = baseUrl + 'ExportExcelAttPath/';
+            var cmnParam = "[" + JSON.stringify(objcmnParam) + "," + JSON.stringify(objSearchParam) + "]";
+
+            var TargetItems = crudService.GetList(apiRoute, cmnParam, $scope.HeaderToken);
+            TargetItems.then(function (response) {
+                window.open(DirectoryKey +'/UserFiles/Notification/' + response.data, '_blank', '');
+            },
+                function (error) {
+                    console.log("Error: " + error);
+                });
+        }
+    }]);
+

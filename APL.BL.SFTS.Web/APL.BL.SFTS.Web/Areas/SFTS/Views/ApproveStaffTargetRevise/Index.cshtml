@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Approve Staff Target Revise";
+}
+
+
+<div ng-controller="tokenCtrl">
+    <div ng-controller="ApproveStaffTargetReviseCtlr">
+        <!-- Breadcrumbs line -->
+        <div>
+            @Html.Partial("~/Areas/SystemCommon/Views/Shared/_Partial/_TestBreadcrumbs.cshtml")
+        </div>
+        <!-- /Breadcrumbs line -->
+        <!--=== Page Header ===-->
+
+        <div style="height: 10px"></div>
+        <!-- /Page Header -->
+        <!--=== Page Content ===-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> {{PageTitle}}</h4>
+                        <div class="toolbar no-padding">
+                            <span id="Show" class="btn btn-info margin-right-btn" ng-show="btnShowDetail" ng-click="ShowHide()">
+                                <i class="icon-search" ng-show="IsListIcon"></i> <i ng-show="IsCreateIcon" class="icon-plus-sign"></i> {{btnShowText}}
+                            </span>
+                            <span id="save" class="btn btn-success margin-right-btn" ng-show="btnSaveShow" ng-disabled="IsbtnSaveDisabled" ng-click="save(1)">
+                                <i class="icon-save"></i> {{btnSaveText}}
+                            </span>
+                            <span id="reject" class="btn btn-danger margin-right-btn" ng-disabled="IsRejectDisabled" ng-show="btnRejectShow" ng-click="save(0)">
+                                <i class="icon-ban-circle"></i> Reject
+                            </span>
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+
+                        </div>
+                    </div>
+
+                    <div class="widget-content" ng-show="IsShow">
+                        @Html.Partial("~/Areas/SFTS/Views/ApproveStaffTargetRevise/_Partial/_tableStaffTargetReviseSummary.cshtml")
+                    </div>
+
+                    <div class="row" ng-show="IsStuffTargetDetailShow">
+                        <div class="widget-content">
+                            @Html.Partial("~/Areas/SFTS/Views/ApproveStaffTargetRevise/_Partial/_tableStaffTargetReviseReq.cshtml")
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- /.col-md-12 -->
+        </div>
+    </div>
+</div>
+
+
+<!-- /.container -->
+@section AngularScript{
+    <script src="~/Areas/SFTS/ScriptsNg/Controllers/ApproveStaffTargetReviseCtlr.js"></script>
+    <script src="~/Areas/SFTS/ScriptsNg/Service/CrudService.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+    <script src="~/Areas/Token/TokenController.js"></script>
+}
+
+
+
+

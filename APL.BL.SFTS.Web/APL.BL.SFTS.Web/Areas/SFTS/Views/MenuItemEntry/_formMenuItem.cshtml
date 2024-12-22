@@ -1,0 +1,62 @@
+﻿
+
+<form novalidate name="frmMenuItems" id="frmMenuItems" class="form-horizontal row-border">
+    <input type="text" id="hMenuItemId" readonly="readonly" ng-model="hMenuItemId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Menu Name :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtMenuName"
+                           class="form-control"
+                           ng-model="MenuName"
+                           name="txtMenuName" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Menu Url :</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtMenuUrl"
+                           class="form-control"
+                           ng-model="MenuUrl"
+                           name="txtGroupUrl" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Menu For :</label>
+                <div class="col-md-6">
+                    <input type="radio"
+                           ng-model="MenuFor"
+                           name="menufor" value="1" required />  RSO
+                    <input type="radio"
+                           ng-model="MenuFor"
+                           name="menufor" value="2" required /> Merchandiser
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Is Active :</label>
+                <div class="col-md-6">
+                    <input type="radio"
+                           ng-model="IsActive"
+                           name="isactive" value="1" required />  Yes
+                    <input type="radio"
+                           ng-model="IsActive"
+                           name="isactive" value="0" required /> No
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+
+

@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Commission Structure";
+}
+<div ng-controller="tokenCtrl">
+    <div ng-controller="CommissionStructureCtrl">
+        <!-- Breadcrumbs line -->
+        <div>
+            @Html.Partial("~/Areas/SystemCommon/Views/Shared/_Partial/_TestBreadcrumbs.cshtml")
+        </div>
+        <!-- /Breadcrumbs line -->
+        <!--=== Page Header ===-->
+
+        <div style="height: 10px"></div>
+        <!-- /Page Header -->
+        <!--=== Page Content ===-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> {{PageTitle}}</h4>
+                        <div class="toolbar no-padding">
+                            @*<div class="btn-group">
+                                    <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+                                </div>*@
+
+                            <span id="reset" class="btn btn-danger margin-right-btn" ng-click="clear()">
+                                <i class="icon-refresh"></i> Reset
+                            </span>
+
+                            <span id="Show" class="btn btn-info margin-right-btn" ng-click="ShowHide()">
+                                <i class="icon-search" ng-show="IsListIcon"></i> <i ng-show="IsCreateIcon" class="icon-plus-sign"></i> {{btnShowText}}
+                            </span>
+
+                            <span id="save" class="btn btn-success margin-right-btn" ng-click="save()" ng-disabled="frmCurrentOffer.$invalid">
+                                <i class="icon-save"></i> {{btnSaveText}}
+                            </span>
+
+
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+
+                        </div>
+                    </div>
+                    <div class="widget-content" ng-show="IsShow">
+                        @Html.Partial("~/Areas/SFTS/Views/CommissionStructure/_Partial/_formCommissionStructure.cshtml")
+                    </div>
+
+
+                    <div class="row" ng-hide="IsHidden">
+                        <div class="col-md-12">
+                            <div class="widget-content no-padding">
+                                <div>
+                                    @Html.Partial("~/Areas/SFTS/Views/CommissionStructure/_Partial/_tableCommissionStructure.cshtml")
+                                </div>
+                            </div>
+                        </div> <!-- /.col-md-12 -->
+                    </div>
+                </div>
+            </div> <!-- /.col-md-12 -->
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<!-- /.container -->
+@section AngularScript{
+    <script src="~/Areas/SFTS/ScriptsNg/Controllers/CommissionStructureCtlr.js"></script>
+    <script src="~/Areas/SFTS/ScriptsNg/Service/CrudService.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+    <script src="~/Areas/SFTS/ScriptsNg/Directives/DropdownMultiselect.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+    <script src="~/Areas/Token/TokenController.js"></script>
+}
+
+
+

@@ -1,0 +1,72 @@
+﻿
+<form novalidate name="frmNewGraphInfo" id="frmNewGraphInfo" class="form-horizontal row-border">
+    <input type="hidden" id="hGraphId" readonly="readonly" ng-model="hGraphId" />
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">KPI</label>
+                <div class="col-md-6">
+                    <select id="ddllistKPI" class="select2-select-00"
+                            ng-model="listKPIModel"
+                            ng-disabled="IslistKPIDisabled"
+                            name="ddlTargetItem"
+                            data-placeholder="--Select KPI--"
+                            ng-change="loadUNASSINGGRPH(listKPIModel)"
+                            style="width: 100%" ng-options="dist.KPI_KEY as dist.KPI_NAME for dist in listKPI" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+            <div class="form-group m-b-10 clearfix">
+
+
+            </div>
+
+
+            <div class="col-lg-12" ng-show="listKPIModel">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Un Assigned List</div>
+                            <div class="panel-body">
+                                <ul class="list-unstyled">
+                                    <li ng-repeat="x in unassignGraph">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" ng-model="x.ISASSIGN">{{x.GRAPH_CODE}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <button id="btnassign" ng-click="UpdateAssigngnGrapth()"  class="btn btn-default"><i class="fa fa-arrow-circle-right"></i></button>
+                        <br />
+                        <br />
+                        <button  id="btnunassign" ng-click="UpdateAssignUnAssignGrapth()" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i></button>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Assigned List</div>
+                            <div class="panel-body">
+                                <ul class="list-unstyled">
+                                    <li ng-repeat="x in assignGraph">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" ng-model="x.ISASSIGN">{{x.GRAPH_CODE}}</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+

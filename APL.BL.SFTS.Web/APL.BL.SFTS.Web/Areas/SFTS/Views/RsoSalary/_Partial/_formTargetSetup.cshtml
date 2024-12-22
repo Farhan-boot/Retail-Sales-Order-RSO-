@@ -1,0 +1,137 @@
+﻿
+<form novalidate name="frmDistributorTarget" id="frmDistributorTarget" class="form-horizontal row-border">
+    <input id="hUploadCode" hidden="hidden" ng-model="hUploadCode" />
+    <input id="hTargetId" hidden="hidden" ng-model="hTargetId" />
+    <input id="hVersion" hidden="hidden" ng-model="hVersion" />
+    <input type="hidden" id="hUserID" name="userID" value="@Session["CurUserID"].ToString()" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Item</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetItem" class="select2-select-00"
+                            ng-model="TargetItem"
+                            ng-disabled="IsTargetItemDisabled"
+                            name="ddlTargetItem"
+                            data-placeholder="--Select Target Item--"
+                            style="width: 100%" ng-options="dist.TARGET_ITEM_ID as dist.TARGET_ITEM_NAME for dist in listTargetItem" >
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target Period</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetPeriod" class="select2-select-00"
+                            ng-model="TargetPeriod"
+                            name="ddlTargetPeriod"
+                            ng-disabled="IsTargetPeriodDisabled"
+                            data-placeholder="--Select Target Period--"
+                            style="width: 100%" ng-options="rout.TARGET_PERIOD_ID as rout.TARGET_PERIOD_NAME for rout in listTargetPeriod" >
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            @*@using (Html.BeginForm("ExcelForTargetUpload", "DistributorTarget", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group  m-b-10 clearfix">
+                        <label class="col-md-4 control-label">Source File</label>
+                        <div class="col-md-6">
+                            <input type="file" id="FileUpload1" name="FileUpload1" onchange="this.form.submit(); fu();" />
+                        </div>
+                        <span class="error">*</span>
+                    </div>
+                }*@
+
+
+            <!--UsingJS-->
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label">Source File</label>
+                <div class="col-md-6">
+                    <input type="file" id="files" name="files[]" multiple required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label"></label>
+                <div class="col-md-6">
+                    <div class="w3-light-grey" ng-show="IsInProgress">
+                        <div class="w3-green" style="height: 15px; width: {{ProgressStatus}}%">{{ProgressStatus}} %  {{waitText}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 10px;"></div>
+            <p style="color:red; font-weight: bold;" ng-show="IsNotFoundShow">{{NotFoundMsg}}</p>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">Set Date</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtSetDate"
+                           style="color: red;"
+                           ng-model="SetDate"
+                           readonly
+                           class="form-control"
+                           name="txtSetDate" />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">Revision Up To</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtRevisionUpTo"
+                           ng-model="RevisionUpTo"
+                           class="form-control datepicker"
+                           name="txtRevisionUpTo" placeholder="dd-MM-yyyy"  />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Target For</label>
+                <div class="col-md-6">
+                    <select id="ddlTargetFor" class="select2-select-00"
+                            ng-model="TargetFor"
+                            ng-change="TargetForChange()"
+                            ng-disabled="IsTargetForDisabled"
+                            name="ddlTargetFor"
+                            data-placeholder="--Select Target For--"
+                            style="width: 100%" required>
+                        <option></option>
+                        <option value="1">Distributor</option>
+                        <option value="2">Staff</option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group  m-b-10 clearfix" ng-show="IsStaffTypeShow">
+                <label class="col-md-4 control-label" for="input17">Staff Type</label>
+                <div class="col-md-6">
+                    <select id="ddlStaffType" class="select2-select-00"
+                            ng-model="StaffType"
+                            ng-disabled="IsStaffTypeDisabled"
+                            name="ddlStaffType"
+                            data-placeholder="--Select Staff Type--"
+                            style="width: 100%" ng-options="S.ROLE_ID as S.ROLE_NAME for S in listRole">
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+

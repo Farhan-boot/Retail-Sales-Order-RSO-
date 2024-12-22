@@ -1,0 +1,89 @@
+﻿<form novalidate name="frmTrainingContent" id="frmTrainingContent" class="form-horizontal row-border" enctype="multipart/form-data">
+    <input type="hidden" id="hTrainingContentId" readonly="readonly" ng-model="hTrainingContentId" />
+   
+    <div class="row">
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Content Name :</label>
+                <div class="col-md-6">
+                    <input type="text" id="txtContentName" class="form-control" ng-model="CONTENT_NAME" name="txtContentName" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Training Name :</label>
+                <div class="col-md-6">
+                    <input type="text" id="txtTrainingName" class="form-control" ng-model="TRAINING_NAME" name="txtTrainingName" required />
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Upload Image/Pdf file :</label>
+                <div class="col-md-6">
+                    <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+                </div>
+                <span class="error"></span>
+            </div>
+
+
+
+            <input type="hidden" id="hdFileName" />
+
+        </div>
+        <div class="col-md-6">
+            <div style="height: 10px;"></div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Upload Date :</label>
+                <div class="col-md-6">
+
+                    <input type="text"
+                           id="txtUploadedDate"
+                           class="form-control datepicker"
+                           name="txtUploadedDate" ng-model="UPLOADED_DATE" placeholder="dd/MM/yyyy" required /> @*//ng-change="dateValidation()"*@
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+
+                <div class="form-group  m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Link :</label>
+                    <div class="col-md-6">
+                        <input type="text"
+                               id="txtOtherLink"
+                               class="form-control"
+                               ng-model="OTHER_LINK"
+                               name="txtOtherLink" />
+                    </div>
+                    <span class="error"></span>
+
+                </div>
+
+
+                <div class="form-group m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Is Active :</label>
+                    <div class="col-md-6">
+
+                        <input type="radio" ng-model="IsActive" checked id="html" name="IsActive" value="1" required> Yes
+                        &nbsp; &nbsp;<input type="radio" ng-model="IsActive" id="html" name="IsActive" value="0" required>   No
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    <div class="row">
+        <img id="imgFile" style="width:120px;height:80px;" src="{{UploadedFileLink}}" alt="" />
+    </div>
+    </form>
+
+
+

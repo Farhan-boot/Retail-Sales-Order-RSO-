@@ -1,0 +1,124 @@
+﻿
+<form novalidate name="frmBestRetailerPractice" id="frmBestRetailerPractice" class="form-horizontal row-border">
+    <input type="hidden" id="hBestRetailerPracticeId" readonly="readonly" ng-model="hBestRetailerPracticeId" />
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Region</label>
+                <div class="col-md-6">
+                    <select id="ddlRegion" class="select2-select-00"
+                            ng-model="Region"
+                            name="ddlRegion"
+                            ng-change="loadDistributors(0)"
+                            data-placeholder="--Select Region--"
+                            style="width: 100%" ng-options="ct.REGION_ID as ct.REGION_NAME for ct in listRegion" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Distributor</label>
+                <div class="col-md-6">
+                    <select id="ddlDistributor" class="select2-select-00"
+                            ng-model="Distributor"
+                            ng-change="loadRSO(0)"
+                            name="ddlDistributor"
+                            data-placeholder="--Select Distributor--"
+                            style="width: 100%" ng-options="ct.DISTRIBUTOR_ID as ct.DISTRIBUTOR_NAME for ct in listDistributor" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">RSO</label>
+                <div class="col-md-6">
+                    <select id="ddlRSO" class="select2-select-00"
+                            ng-model="Rso"
+                            name="ddlRSO"
+                            data-placeholder="--Select RSO--"
+                            style="width: 100%" ng-options="ct.RSO_ID as ct.RSO_NAME_CODE for ct in listRso" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-4 control-label">Description:</label>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="col-md-4 control-label">Thana</label>
+                <div class="col-md-6">
+                    <input type="text"
+                           id="txtThana"
+                           ng-model="Thana"
+                           class="form-control"
+                           readonly
+                           name="txtThana" />
+
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Calculation Month & Year</label>
+                <div class="col-md-6">
+                    <select id="ddlMonth" class="select2-select-00"
+                            ng-model="Month"
+                            name="ddlMonth"
+                            data-placeholder="--Select Month--"
+                            style="width: 150px;"
+                            ng-options="ct.MONTH_ID as ct.MONTH_NAME for ct in listMonth" required>
+                        <option></option>
+                    </select>
+
+                    <div style="float:right">
+                        <input type="text"
+                               id="txtYear"
+                               style="width: 90px;"
+                               placeholder="Year"
+                               class="form-control"
+                               name="txtYear" ng-model="Year" required />
+                    </div>
+
+                </div>
+                <span class="error">*</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="input17">Calculation Area</label>
+                <div class="col-md-6">
+                    <select id="ddlCalculationArea" class="select2-select-00"
+                            ng-model="CalculationArea"
+                            name="ddlCalculationArea"
+                            data-placeholder="--Select Calculation Area--"
+                            style="width: 100%" ng-options="ct.AREA_ID as ct.AREA_NAME for ct in listCalculationArea" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-9">
+            <textarea rows="6" id="taDescription" ng-model="Description" style="width: 100%" ></textarea>
+        </div>
+      
+    </div>
+
+</form>
+
+

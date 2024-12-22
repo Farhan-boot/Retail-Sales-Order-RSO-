@@ -1,0 +1,132 @@
+﻿
+<form novalidate name="frmNewSurvey" id="frmNewSurvey" class="form-horizontal row-border">
+    <input type="hidden" id="hSurveyId" readonly="readonly" ng-model="hSurveyId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group  m-b-10 clearfix">
+
+                <label class="col-md-4 control-label" for="input17">Region</label>
+                <div class="col-md-6">
+                    <ngdropdownmultiselect control="ngDropdownMultiselectControlo">
+                        <div ng-dropdown-multiselect="" options="listDDLRegion" selected-model="ListSelectedRegion" checkboxes="true">
+                        </div>
+                    </ngdropdownmultiselect>
+                </div>
+
+                
+            </div>
+
+
+
+            <div class="form-group  m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Distributor</label>
+                <div class="col-md-6">
+                    <select id="ddlDistributor" class="select2-select-00"
+                            ng-model="Distributor"
+                            name="ddlDistributor"
+                            ng-change="loadRoutes(0)"
+                            data-placeholder="--Select Distributor--"
+                            style="width: 100%" ng-options="dist.DISTRIBUTOR_ID as dist.DISTRIBUTOR_NAME for dist in listDistributor">
+                        <option></option>
+                    </select>
+                </div>
+                
+            </div>
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label" for="input17">Route</label>
+                <div class="col-md-6">
+                    <select id="ddlRoute" class="select2-select-00"
+                            ng-model="Route"
+                            name="ddlRoute"
+                            data-placeholder="--Select Route--"
+                            style="width: 100%" ng-options="rout.ROUTE_ID as rout.ROUTENAME for rout in listRoute">
+                        <option></option>
+                    </select>
+                </div>
+                
+            </div>
+
+            <div class="form-group m-b-10 clearfix">
+                <label class="col-md-4 control-label">Start Date</label>
+                <div class="col-md-6">
+
+                    <input type="text"
+                           id="txtDateFrom"
+                           class="form-control datepicker"
+                           name="txtDateFrom" ng-model="StartDate" placeholder="dd-MM-yyyy" required /> @*//ng-change="dateValidation()"*@
+
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+
+                <div class="form-group m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">End Date</label>
+                    <div class="col-md-6">
+                        <input type="text"
+                               id="txtEndDate"
+                               class="form-control datepicker"
+                               name="txtEndDate" ng-model="EndDate" placeholder="dd-MM-yyyy" required />
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="form-group m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Status</label>
+                    <div class="col-md-6">
+                        <select id="ddlStatus" class="select2-select-00"
+                                ng-model="Status"
+                                name="ddlStatus"
+                                style="width: 100%"
+                                ng-disabled="true">
+                            <option value="1">New Survey</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group  m-b-10 clearfix">
+                    <label class="col-md-4 control-label">Title</label>
+                    <div class="col-md-6">
+                        <input type="text"
+                               id="txtTitle"
+                               class="form-control"
+                               name="txtTitle" ng-model="Title" required />
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+                <div class="form-group m-b-10 clearfix">
+                    <label class="col-md-4 control-label">Description</label>
+                    <div class="col-md-6">
+                        <textarea rows="2" cols="3"
+                                  id="txtDescription"
+                                  class="form-control"
+                                  name="txtDescription" ng-model="Description"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group m-b-10 clearfix">
+                    <label class="col-md-4 control-label" for="input17">Survey For</label>
+                    <div class="col-md-6">
+                        <select id="ddlSurveyFor" class="select2-select-00"
+                                ng-model="SURVEY_FOR"
+                                name="ddlSurveyFor"
+                                style="width: 100%" required>
+                            <option value=" ">--Select Survey For--</option>
+                            <option value="2">RSO</option>
+                            <option value="3">Merchindeser</option>
+                        </select>
+                    </div>
+                    <span class="error">*</span>
+                </div>
+
+            </div>
+        </div>
+</form>
+

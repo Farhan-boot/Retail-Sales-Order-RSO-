@@ -1,0 +1,51 @@
+﻿
+<div id="customScrolledTableInspac" style="overflow: auto; max-width: 1230px;">
+    <input type="hidden" ng-model="hTargetId"/>
+    <input type="hidden" ng-model="hVersion" />
+    <input type="hidden" id="hRevisionValidUpTo" readonly="readonly" ng-model="hRevisionValidUpTo" />
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+    </style>
+
+    <div class="table table-responsive">
+        <table class="table table-bordered table-hover" style="margin-bottom: 0px; overflow: auto;">
+            <thead class="grid-top-panel">
+                <tr class="gr-header">
+                    <th hidden></th>
+                    <th class="co-xs-1">Code</th>
+                    <th class="col-xs-2">RSO Name</th>
+                    <th class="col-xs-3">Territory</th>
+                    <th class="col-xs-2" style="text-align: center;">Target Value</th>
+                    <th class="col-xs-2" style="text-align: center;">{{revisedValueTxt}}</th>
+                    <th class="col-xs-2">Comments</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="rowdiv" style="max-height: 400px; overflow: auto;">
+            <table style="width: 100%;">
+                <tr ng-repeat="dataModel in StaffTargetList|filter:ListStaffTargetSearch" ng-class="{'rowselected':$index == selectedRow}" ng-click="setClickedRow($index)">
+                    <td hidden>{{dataModel.ID}}</td> 
+                    <td class="col-xs-1">{{dataModel.RSO_CODE}}</td>       
+                    <td class="col-xs-2"><span>{{dataModel.RSO_NAME}}</span></td>
+                    <td class="col-xs-3">{{dataModel.TERRITORY}}</td>      
+                    <td class="col-xs-2" style="text-align: right;">{{dataModel.TARGET_VALUE}}</td>
+                    <td class="col-xs-2" style="padding-left: 30px;">
+                        <input type="text"  style="text-align: right; width: 90%" ng-model="dataModel.TARGET_VALUE_FOR_REVISE" />
+                    </td>
+                    <td class="col-xs-2">
+                        <input type="text" style="text-align: left; width: 100%" ng-model="dataModel.COMMENTS" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+

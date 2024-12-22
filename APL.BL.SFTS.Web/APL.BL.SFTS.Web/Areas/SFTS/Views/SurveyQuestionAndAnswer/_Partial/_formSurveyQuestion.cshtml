@@ -1,0 +1,44 @@
+﻿
+<form novalidate name="frmNewSurvey" id="frmNewSurvey" class="form-horizontal row-border">
+    <input type="hidden" id="hSurveyId" readonly="readonly" ng-model="hSurveyId" />
+    <div class="row">
+        <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="control-group col-lg-4 col-md-4 col-sm-64 col-xs-4">
+                <label class="control-label pull-left" for="input01">Survey:</label>
+                <div class="controls">
+                    <select id="ddlSurvey" class="form-control"
+                            name="ddlSurvey"
+                            ng-model="Survey"
+                            ng-change="GetSurveyQuestions()"
+                            ng-options="dist.SURVEYLIST_ID as dist.TITLE for dist in listSurvey">
+                        <option value="" disabled selected>--Select Survey--</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group col-lg-4 col-md-5 col-sm-64 col-xs-4">
+                <label class="control-label pull-left" for="input01">Question:</label>
+                <div class="controls">
+                    <input name="txtQuestion" type="text" id="txtQuestion" ng-model="Question" class="form-control">
+                </div>
+            </div>
+            <div class="control-group col-lg-4 col-md-4 col-sm-64 col-xs-4">
+                <label class="control-label pull-left" for="input01">Note:</label>
+                <div class="controls">
+                    <textarea name="txtNote" rows="2" cols="20" id="txtNote" ng-model="Note" class="form-control"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <div class="clearfix"></div>
+        <br>
+        <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="pull-right control-group col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="controls">
+                    <input type="submit" name="btnSaveQuestion" value="Save Question" ng-click="saveQuestion()" id="btnSaveQuestion" class="pull-right btn btn-success">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,25 @@
+﻿
+<form novalidate name="frmUserRoleAssign" id="frmUserRoleAssign" class="form-horizontal row-border">
+    <input type="hidden" id="hRoleId" readonly="readonly" ng-model="hRoleId" />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="input17">User</label>
+                <div class="col-md-6">
+                    <select id="ddlUser" class="select2-select-00"
+                            ng-model="User"
+                            name="ddlUser"
+                            data-placeholder="--Select User--"
+                            style="width: 100%" ng-options="u.ID as u.CODE_NAME for u in listUser" required>
+                        <option></option>
+                    </select>
+                </div>
+                <span class="error">*</span>
+            </div>   
+
+        </div>
+    </div>
+
+</form>
+
+

@@ -1,0 +1,25 @@
+﻿
+<div style="height: 20px;"></div>
+<label style="color:red; font-weight: bold">Total Record(s): {{TotalRowCount}} </label><label style="color:red; font-weight: bold">, Total Target Value:  {{TotalTargetValue}}</label>
+<table class="table table-striped table-fixed">
+    <thead style="background-color: #ecf0f5">
+        <tr>
+            <th>SL</th>
+            <th>DD CODE</th>
+            <th>CAMP NAME</th>
+            <th>TARGET</th>
+            <th>ACHIEVEMENTS</th>
+            <th>UPLOAD DATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="excelData in uploadedExcelData">
+            <td>{{excelData.ID}}</td>
+            <td>{{excelData.DD_CODE}}</td>
+            <td>{{excelData.TARGET}}</td>
+            <td>{{excelData.ACIEVEMENNTS}}</td>
+            <td>{{excelData.UPLOAD_DATE}}</td>
+        </tr>
+    </tbody>
+</table>
+

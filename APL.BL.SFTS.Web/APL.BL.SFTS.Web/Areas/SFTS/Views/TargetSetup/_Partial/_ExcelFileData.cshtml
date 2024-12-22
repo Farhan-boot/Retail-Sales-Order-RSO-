@@ -1,0 +1,36 @@
+﻿@model IEnumerable<APL.BL.SFTS.DataBridgeZone.SP_GET_DISTRIBUTOR_TARGET_FILE>
+
+<div style="height: 20px;"></div>
+
+@if (Model != null)
+{
+    <label style="color:red; font-weight: bold">Total Record(s):  @Model.First().ROW_COUNT</label><label style="color:red; font-weight: bold">, Total Target Value:  @Model.First().TOTAL_TARGET_VALUE</label>
+                                <input id="uploadCode" hidden="hidden" value="@Model.First().UPLOAD_CODE" />
+                                <input id="hTargetId" hidden="hidden" ng-model="hTargetId" />
+                                <input id="hVersion" hidden="hidden" ng-model="hVersion" />
+                                <table class="table table-striped table-fixed">
+                                    <thead style="background-color: #ecf0f5">
+                                        <tr>
+                                            <th>Month Name</th>
+                                            <th>Item Code</th>
+                                            <th>Item Name</th>
+                                            <th>Distributor Code</th>
+                                            <th>Distributor Name</th>
+                                            <th>Target Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.MONTH_NAME</td>
+                                                <td>@item.TARGET_ITEM_CODE</td>
+                                                <td>@item.ITEM_NAME</td>
+                                                <td>@item.DISTRIBUTOR_CODE</td>
+                                                <td>@item.DISTRIBUTOR_NAME</td>
+                                                <td>@item.TARGET_VALUE</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+}

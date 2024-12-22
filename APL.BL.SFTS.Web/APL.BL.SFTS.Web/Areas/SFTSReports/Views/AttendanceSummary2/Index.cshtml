@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Survey Result";
+}
+
+<div ng-controller="tokenCtrl">
+    <div ng-controller="AttendanceSummary2Ctlr">
+        <!--=== Page Header ===-->
+
+        <div style="height: 10px"></div>
+        <!-- /Page Header -->
+        <!--=== Page Content ===-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="widget box">
+                    <div class="widget-header">
+                        <h4><i class="icon-reorder"></i> {{PageTitle}}</h4>
+                        <div class="toolbar no-padding">
+                            <span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+
+                        </div>
+                    </div>
+
+                    <div class="widget-content">
+                        <div>
+                            @Html.Partial("~/Areas/SFTSReports/Views/AttendanceSummary2/_formSearch.cshtml")
+                        </div>
+                    </div>
+
+                    <div class="widget-content">
+                        <div>
+                            @Html.Partial("~/Areas/SFTSReports/Views/AttendanceSummary2/_rptAttendanceSummary2.cshtml")
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- /.col-md-12 -->
+        </div>
+    </div>
+</div>
+
+
+@section AngularScript{
+    <script src="~/Areas/SFTSReports/ScriptsNg/Controllers/AttendanceSummary2Ctlr.js"></script>
+    <script src="~/Areas/SFTSReports/ScriptsNg/Service/CrudService.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Directives/Conversion.js"></script>
+    <script src="~/Areas/SystemCommon/ScriptsNg/Controllers/BreadcrumbCtrl.js"></script>
+    <script src="~/Areas/Token/TokenController.js"></script>
+}
+
